@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpLearningClean", "CSharpLearningClean\CSharpLearningClean.csproj", "{A46FCD24-D247-41A2-88F3-536A87397C53}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Welcome_20151116_1", "Welcome_20151116_1\Welcome_20151116_1.csproj", "{4AC9D33F-5B37-4878-A2AE-3FCBA8BB5D1D}"
@@ -8,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Welcome_20151118_1", "Welcome_20151118_1\Welcome_20151118_1.csproj", "{E72B45A5-341D-4543-8D61-E25C80F8134D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Welcome_20151118_2", "Welcome_20151118_2\Welcome_20151118_2.csproj", "{9AEBCB8D-DB0C-4AA4-8DF9-2C24C1A42713}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CopyFile_20160107_1", "CopyFile_20160107_1\CopyFile_20160107_1.csproj", "{262B05AA-E04E-4486-A01F-D31141DD9C4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,10 @@ Global
 		{9AEBCB8D-DB0C-4AA4-8DF9-2C24C1A42713}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AEBCB8D-DB0C-4AA4-8DF9-2C24C1A42713}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AEBCB8D-DB0C-4AA4-8DF9-2C24C1A42713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{262B05AA-E04E-4486-A01F-D31141DD9C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{262B05AA-E04E-4486-A01F-D31141DD9C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{262B05AA-E04E-4486-A01F-D31141DD9C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{262B05AA-E04E-4486-A01F-D31141DD9C4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
