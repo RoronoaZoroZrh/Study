@@ -4,10 +4,6 @@
  *  brief  : 清理解决方案CSharpLearning生成的文件，运行解决方案根目录下该项目可执行文件才能正确运行
  */
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
 
