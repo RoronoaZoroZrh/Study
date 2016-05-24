@@ -110,6 +110,7 @@
             this.ListBoxPlan.Name = "ListBoxPlan";
             this.ListBoxPlan.Size = new System.Drawing.Size(250, 538);
             this.ListBoxPlan.TabIndex = 1;
+            this.ListBoxPlan.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxPlan_MouseDoubleClick);
             this.ListBoxPlan.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListBoxPlan_MouseDown);
             this.ListBoxPlan.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ListBox_MouseUp);
             // 
@@ -149,6 +150,7 @@
             this.ListBoxToDo.Name = "ListBoxToDo";
             this.ListBoxToDo.Size = new System.Drawing.Size(250, 538);
             this.ListBoxToDo.TabIndex = 2;
+            this.ListBoxToDo.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxToDo_MouseDoubleClick);
             this.ListBoxToDo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListBoxToDo_MouseDown);
             this.ListBoxToDo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ListBox_MouseUp);
             // 
@@ -188,6 +190,7 @@
             this.ListBoxDoing.Name = "ListBoxDoing";
             this.ListBoxDoing.Size = new System.Drawing.Size(250, 538);
             this.ListBoxDoing.TabIndex = 2;
+            this.ListBoxDoing.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxDoing_MouseDoubleClick);
             this.ListBoxDoing.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ListBoxDoing_MouseDown);
             this.ListBoxDoing.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ListBox_MouseUp);
             // 
@@ -200,12 +203,12 @@
             this.ToolStripMenuItemRevert});
             this.ContextMenuStripFormPlan.Name = "ContextMenuStripFormPlan";
             this.ContextMenuStripFormPlan.ShowImageMargin = false;
-            this.ContextMenuStripFormPlan.Size = new System.Drawing.Size(128, 114);
+            this.ContextMenuStripFormPlan.Size = new System.Drawing.Size(76, 92);
             // 
             // ToolStripMenuItemAdd
             // 
             this.ToolStripMenuItemAdd.Name = "ToolStripMenuItemAdd";
-            this.ToolStripMenuItemAdd.Size = new System.Drawing.Size(127, 22);
+            this.ToolStripMenuItemAdd.Size = new System.Drawing.Size(75, 22);
             this.ToolStripMenuItemAdd.Text = "添加";
             this.ToolStripMenuItemAdd.Click += new System.EventHandler(this.ToolStripMenuItemAdd_Click);
             // 

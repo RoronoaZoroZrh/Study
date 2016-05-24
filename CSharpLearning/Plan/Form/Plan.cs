@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Plan
@@ -114,7 +115,53 @@ namespace Plan
         //添加
         private void ToolStripMenuItemAdd_Click(object sender, System.EventArgs e)
         {
-            
+            ItemDetail fItemDetail = new ItemDetail();
+            if (fItemDetail.ShowDialog() == DialogResult.OK)
+            {
+                this.m_formPlanDataLayer.HandlePlanData(this.ListBoxPlan, Operate.Add, fItemDetail.SummaryInfo, fItemDetail.DetailInfo);
+            }
+        }
+
+        //查看
+        private void ListBoxPlan_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Check(this.ListBoxPlan);
+        }
+
+        //查看
+        private void ListBoxToDo_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Check(this.ListBoxToDo);
+        }
+
+        //查看
+        private void ListBoxDoing_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Check(this.ListBoxDoing);
+        }
+
+        //查看
+        private void Check(ListBox lControl)
+        {
+            if (lControl.SelectedItem != null)
+            {
+                String sDetailInfo = String.Empty;
+                if (this.m_formPlanDataLayer.GetPlanData(lControl, lControl.SelectedItem.ToString(), ref sDetailInfo))
+                {
+                    ItemDetail fItemDetail = new ItemDetail();
+                    fItemDetail.SummaryInfo = lControl.SelectedItem.ToString();
+                    fItemDetail.DetailInfo = sDetailInfo;
+                    if (fItemDetail.ShowDialog() == DialogResult.OK)
+                    {
+                        if (lControl.SelectedItem.ToString() != fItemDetail.SummaryInfo)
+                        {
+                            MessageBox.Show(lControl, "不允许此类操作");
+                            return;
+                        }
+                        this.m_formPlanDataLayer.HandlePlanData(lControl, Operate.Modify, fItemDetail.SummaryInfo, fItemDetail.DetailInfo);
+                    }
+                }
+            }
         }
 
         //数据层
