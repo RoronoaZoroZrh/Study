@@ -74,7 +74,16 @@
       <DependentUpon>Plan.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\Program.cs" />
+    <Compile Include="Form\ItemDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ItemDetail.Designer.cs">
+      <DependentUpon>ItemDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form\ItemDetail.resx">
+      <DependentUpon>ItemDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\Plan.resx">
       <DependentUpon>Plan.cs</DependentUpon>
     </EmbeddedResource>
