@@ -128,7 +128,20 @@ namespace Plan
                 return;
             }
 
+            if (!this.m_dPlanData.ContainsKey(lControl.Name))
+            {
+                MessageBox.Show(lControl, "不包含此项");
+                return;
+            }
+
+            if (!this.m_dPlanData[lControl.Name].ContainsKey(sSummaryInfo))
+            {
+                MessageBox.Show(lControl, "不包含此项");
+                return;
+            }
+
             lControl.Items.Remove(sSummaryInfo);
+            this.m_dPlanData[lControl.Name].Remove(sSummaryInfo);
             this.m_dPlanData[sKey].Add(sSummaryInfo, sDetailInfo);
         }
 
@@ -146,7 +159,7 @@ namespace Plan
         public void ReadPlanData()
         {
             //加载数据
-            if (File.Exists("Plan.dat"))
+            if (File.Exists(@"..\..\Data\Plan.dat"))
             {
                 FileStream vFileStream = new FileStream(@"..\..\Data\Plan.dat", FileMode.Open);
                 BinaryFormatter vBinaryFormatter = new BinaryFormatter();

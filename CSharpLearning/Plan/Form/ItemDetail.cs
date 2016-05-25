@@ -25,5 +25,15 @@ namespace Plan
             get { return this.TextBoxDetail.Text.Trim(); }
             set { this.TextBoxDetail.Text = value; }
         }
+
+        //设置只读属性
+        public Boolean ReadOnly
+        {
+            set
+            {
+                this.TextBoxSummary.ReadOnly = value;
+                this.TextBoxDetail.ReadOnly = value;
+            }
+        }
     }
 }

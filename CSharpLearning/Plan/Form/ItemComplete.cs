@@ -27,6 +27,7 @@ namespace Plan
                     ItemDetail fItemDetail = new ItemDetail();
                     fItemDetail.SummaryInfo = this.ListBoxComplete.SelectedItem.ToString();
                     fItemDetail.DetailInfo = sDetailInfo;
+                    fItemDetail.ReadOnly = true;
                     fItemDetail.ShowDialog();
                 }
             }
