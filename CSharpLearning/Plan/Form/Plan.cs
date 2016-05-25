@@ -173,6 +173,89 @@ namespace Plan
             }
         }
 
+        //移动
+        private void ToolStripMenuItemMove_Click(object sender, EventArgs e)
+        {
+            ListBox lOldListBox = null;
+            ListBox lNewListBox = null;
+
+            if (this.ListBoxPlan.Focused)
+            {
+                lOldListBox = this.ListBoxPlan;
+                lNewListBox = this.ListBoxToDo;
+            }
+            else if (this.ListBoxToDo.Focused)
+            {
+                lOldListBox = this.ListBoxToDo;
+                lNewListBox = this.ListBoxDoing;
+            }
+            else if (this.ListBoxDoing.Focused)
+            {
+                String sDetailInfo = String.Empty;
+                if (this.m_formPlanDataLayer.GetPlanData(this.ListBoxDoing, this.ListBoxDoing.SelectedItem.ToString(), ref sDetailInfo))
+                {
+                    this.m_formPlanDataLayer.HandlePlanData(this.ListBoxDoing, Operate.Move, this.ListBoxDoing.SelectedItem.ToString(), sDetailInfo);
+                }
+            }
+
+            if (lOldListBox != null && lNewListBox != null)
+            {
+                String sSummaryInfo = lOldListBox.SelectedItem.ToString();
+                String sDetailInfo = String.Empty;
+                if (this.m_formPlanDataLayer.GetPlanData(lOldListBox, sSummaryInfo, ref sDetailInfo))
+                {
+                    this.m_formPlanDataLayer.HandlePlanData(lOldListBox, Operate.Delete, sSummaryInfo, sDetailInfo);
+                    this.m_formPlanDataLayer.HandlePlanData(lNewListBox, Operate.Add, sSummaryInfo, sDetailInfo);
+                    lNewListBox.Focus();
+                }
+            }
+        }
+
+        //撤销
+        private void ToolStripMenuItemRevert_Click(object sender, EventArgs e)
+        {
+            ListBox lOldListBox = null;
+            ListBox lNewListBox = null;
+
+            if (this.ListBoxToDo.Focused)
+            {
+                lOldListBox = this.ListBoxPlan;
+                lNewListBox = this.ListBoxToDo;
+            }
+            else if (this.ListBoxDoing.Focused)
+            {
+                lOldListBox = this.ListBoxToDo;
+                lNewListBox = this.ListBoxDoing;
+            }
+
+            if (lOldListBox != null && lNewListBox != null)
+            {
+                String sSummaryInfo = lNewListBox.SelectedItem.ToString();
+                String sDetailInfo = String.Empty;
+                if (this.m_formPlanDataLayer.GetPlanData(lNewListBox, sSummaryInfo, ref sDetailInfo))
+                {
+                    this.m_formPlanDataLayer.HandlePlanData(lNewListBox, Operate.Delete, sSummaryInfo, sDetailInfo);
+                    this.m_formPlanDataLayer.HandlePlanData(lOldListBox, Operate.Add, sSummaryInfo, sDetailInfo);
+                    lOldListBox.Focus();
+                }
+            }
+        }
+
+        //加载
+        private void FormPlan_Load(object sender, EventArgs e)
+        {
+            this.m_formPlanDataLayer.ReadPlanData();
+            this.m_formPlanDataLayer.InitListBox(this.ListBoxPlan);
+            this.m_formPlanDataLayer.InitListBox(this.ListBoxToDo);
+            this.m_formPlanDataLayer.InitListBox(this.ListBoxDoing);
+        }
+
+        //关闭
+        private void FormPlan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.m_formPlanDataLayer.SavePlanData();
+        }
+
         //数据层
         private FormPlanDataLayer m_formPlanDataLayer = new FormPlanDataLayer();
     }
