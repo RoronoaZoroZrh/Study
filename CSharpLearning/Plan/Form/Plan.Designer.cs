@@ -203,31 +203,32 @@
             this.ToolStripMenuItemRevert});
             this.ContextMenuStripFormPlan.Name = "ContextMenuStripFormPlan";
             this.ContextMenuStripFormPlan.ShowImageMargin = false;
-            this.ContextMenuStripFormPlan.Size = new System.Drawing.Size(76, 92);
+            this.ContextMenuStripFormPlan.Size = new System.Drawing.Size(128, 114);
             // 
             // ToolStripMenuItemAdd
             // 
             this.ToolStripMenuItemAdd.Name = "ToolStripMenuItemAdd";
-            this.ToolStripMenuItemAdd.Size = new System.Drawing.Size(75, 22);
+            this.ToolStripMenuItemAdd.Size = new System.Drawing.Size(127, 22);
             this.ToolStripMenuItemAdd.Text = "添加";
             this.ToolStripMenuItemAdd.Click += new System.EventHandler(this.ToolStripMenuItemAdd_Click);
             // 
             // ToolStripMenuItemDelete
             // 
             this.ToolStripMenuItemDelete.Name = "ToolStripMenuItemDelete";
-            this.ToolStripMenuItemDelete.Size = new System.Drawing.Size(75, 22);
+            this.ToolStripMenuItemDelete.Size = new System.Drawing.Size(127, 22);
             this.ToolStripMenuItemDelete.Text = "删除";
+            this.ToolStripMenuItemDelete.Click += new System.EventHandler(this.ToolStripMenuItemDelete_Click);
             // 
             // ToolStripMenuItemMove
             // 
             this.ToolStripMenuItemMove.Name = "ToolStripMenuItemMove";
-            this.ToolStripMenuItemMove.Size = new System.Drawing.Size(75, 22);
+            this.ToolStripMenuItemMove.Size = new System.Drawing.Size(127, 22);
             this.ToolStripMenuItemMove.Text = "移动";
             // 
             // ToolStripMenuItemRevert
             // 
             this.ToolStripMenuItemRevert.Name = "ToolStripMenuItemRevert";
-            this.ToolStripMenuItemRevert.Size = new System.Drawing.Size(75, 22);
+            this.ToolStripMenuItemRevert.Size = new System.Drawing.Size(127, 22);
             this.ToolStripMenuItemRevert.Text = "撤销";
             // 
             // FormPlan

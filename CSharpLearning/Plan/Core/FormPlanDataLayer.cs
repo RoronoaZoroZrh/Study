@@ -26,6 +26,10 @@ namespace Plan
             {
                 this.ModifyPlanData(lControl, sSummaryInfo, sDetailInfo);
             }
+            else if (oOperate == Operate.Delete) //删除
+            {
+                this.DeletePlanData(lControl, sSummaryInfo, sDetailInfo);
+            }
         }
 
         //获取数据
@@ -81,6 +85,25 @@ namespace Plan
             }
 
             this.m_dPlanData[lControl.Name][sSummaryInfo] = sDetailInfo;
+        }
+
+        //删除
+        private void DeletePlanData(ListBox lControl, String sSummaryInfo = "", String sDetailInfo = "")
+        {
+            if (!this.m_dPlanData.ContainsKey(lControl.Name))
+            {
+                MessageBox.Show(lControl, "不包含此项");
+                return;
+            }
+
+            if (!this.m_dPlanData[lControl.Name].ContainsKey(sSummaryInfo))
+            {
+                MessageBox.Show(lControl, "不包含此项");
+                return;
+            }
+
+            lControl.Items.Remove(sSummaryInfo);
+            this.m_dPlanData[lControl.Name].Remove(sSummaryInfo);
         }
 
         //数据

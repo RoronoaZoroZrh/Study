@@ -164,6 +164,15 @@ namespace Plan
             }
         }
 
+        //删除
+        private void ToolStripMenuItemDelete_Click(object sender, EventArgs e)
+        {
+            if (this.ListBoxPlan.SelectedItem != null)
+            {
+                this.m_formPlanDataLayer.HandlePlanData(this.ListBoxPlan, Operate.Delete, this.ListBoxPlan.SelectedItem.ToString(), String.Empty);
+            }
+        }
+
         //数据层
         private FormPlanDataLayer m_formPlanDataLayer = new FormPlanDataLayer();
     }
