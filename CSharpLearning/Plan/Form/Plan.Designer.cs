@@ -73,6 +73,7 @@
             // 
             this.ButtonItemCheckCompleteTask.Name = "ButtonItemCheckCompleteTask";
             this.ButtonItemCheckCompleteTask.Text = "查看完成任务";
+            this.ButtonItemCheckCompleteTask.Click += new System.EventHandler(this.ButtonItemCheckCompleteTask_Click);
             // 
             // ExpandablePanelPlan
             // 

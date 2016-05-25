@@ -80,7 +80,16 @@
     <Compile Include="Form\ItemDetail.Designer.cs">
       <DependentUpon>ItemDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\ItemComplete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ItemComplete.Designer.cs">
+      <DependentUpon>ItemComplete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form\ItemComplete.resx">
+      <DependentUpon>ItemComplete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\ItemDetail.resx">
       <DependentUpon>ItemDetail.cs</DependentUpon>
     </EmbeddedResource>

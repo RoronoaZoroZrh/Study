@@ -256,6 +256,12 @@ namespace Plan
             this.m_formPlanDataLayer.SavePlanData();
         }
 
+        //查看已经完成的任务
+        private void ButtonItemCheckCompleteTask_Click(object sender, EventArgs e)
+        {
+            new ItemComplete(this.m_formPlanDataLayer).ShowDialog();
+        }
+
         //数据层
         private FormPlanDataLayer m_formPlanDataLayer = new FormPlanDataLayer();
     }

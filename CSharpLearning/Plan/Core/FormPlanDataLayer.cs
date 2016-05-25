@@ -116,7 +116,7 @@ namespace Plan
         //移动
         private void MovePlanData(ListBox lControl, String sSummaryInfo = "", String sDetailInfo = "")
         {
-            String sKey = @"Complete";
+            String sKey = @"ListBoxComplete";
             if (!this.m_dPlanData.ContainsKey(sKey))
             {
                 this.m_dPlanData.Add(sKey, new Dictionary<String, String>());
