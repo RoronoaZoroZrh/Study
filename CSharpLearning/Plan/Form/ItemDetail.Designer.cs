@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemDetail));
             this.PanelItemDetail = new DevComponents.DotNetBar.PanelEx();
-            this.TextBoxSummary = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.LabelSummary = new DevComponents.DotNetBar.LabelX();
-            this.LabelDetail = new DevComponents.DotNetBar.LabelX();
-            this.TextBoxDetail = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.ButtonCertain = new DevComponents.DotNetBar.ButtonX();
             this.ButtonCancel = new DevComponents.DotNetBar.ButtonX();
+            this.ButtonCertain = new DevComponents.DotNetBar.ButtonX();
+            this.TextBoxDetail = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.LabelDetail = new DevComponents.DotNetBar.LabelX();
+            this.LabelSummary = new DevComponents.DotNetBar.LabelX();
+            this.TextBoxSummary = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.PanelItemDetail.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,31 +61,44 @@
             this.PanelItemDetail.Style.GradientAngle = 90;
             this.PanelItemDetail.TabIndex = 0;
             // 
-            // TextBoxSummary
+            // ButtonCancel
+            // 
+            this.ButtonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.ButtonCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.ButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.ButtonCancel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ButtonCancel.Location = new System.Drawing.Point(417, 242);
+            this.ButtonCancel.Name = "ButtonCancel";
+            this.ButtonCancel.Size = new System.Drawing.Size(119, 42);
+            this.ButtonCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ButtonCancel.TabIndex = 5;
+            this.ButtonCancel.Text = "取消";
+            // 
+            // ButtonCertain
+            // 
+            this.ButtonCertain.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.ButtonCertain.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.ButtonCertain.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.ButtonCertain.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ButtonCertain.Location = new System.Drawing.Point(263, 242);
+            this.ButtonCertain.Name = "ButtonCertain";
+            this.ButtonCertain.Size = new System.Drawing.Size(119, 42);
+            this.ButtonCertain.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ButtonCertain.TabIndex = 4;
+            this.ButtonCertain.Text = "确定";
+            // 
+            // TextBoxDetail
             // 
             // 
             // 
             // 
-            this.TextBoxSummary.Border.Class = "TextBoxBorder";
-            this.TextBoxSummary.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TextBoxSummary.Location = new System.Drawing.Point(119, 10);
-            this.TextBoxSummary.Name = "TextBoxSummary";
-            this.TextBoxSummary.Size = new System.Drawing.Size(417, 26);
-            this.TextBoxSummary.TabIndex = 0;
-            // 
-            // LabelSummary
-            // 
-            this.LabelSummary.AutoSize = true;
-            // 
-            // 
-            // 
-            this.LabelSummary.BackgroundStyle.Class = "";
-            this.LabelSummary.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LabelSummary.Location = new System.Drawing.Point(12, 12);
-            this.LabelSummary.Name = "LabelSummary";
-            this.LabelSummary.Size = new System.Drawing.Size(90, 23);
-            this.LabelSummary.TabIndex = 1;
-            this.LabelSummary.Text = "概要说明：";
+            this.TextBoxDetail.Border.Class = "TextBoxBorder";
+            this.TextBoxDetail.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TextBoxDetail.Location = new System.Drawing.Point(119, 50);
+            this.TextBoxDetail.Multiline = true;
+            this.TextBoxDetail.Name = "TextBoxDetail";
+            this.TextBoxDetail.Size = new System.Drawing.Size(417, 186);
+            this.TextBoxDetail.TabIndex = 3;
             // 
             // LabelDetail
             // 
@@ -101,48 +114,34 @@
             this.LabelDetail.TabIndex = 2;
             this.LabelDetail.Text = "详细说明：";
             // 
-            // TextBoxDetail
+            // LabelSummary
+            // 
+            this.LabelSummary.AutoSize = true;
+            // 
+            // 
+            // 
+            this.LabelSummary.BackgroundStyle.Class = "";
+            this.LabelSummary.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LabelSummary.Location = new System.Drawing.Point(12, 12);
+            this.LabelSummary.Name = "LabelSummary";
+            this.LabelSummary.Size = new System.Drawing.Size(90, 23);
+            this.LabelSummary.TabIndex = 1;
+            this.LabelSummary.Text = "概要说明：";
+            // 
+            // TextBoxSummary
             // 
             // 
             // 
             // 
-            this.TextBoxDetail.Border.Class = "TextBoxBorder";
-            this.TextBoxDetail.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.TextBoxDetail.Location = new System.Drawing.Point(119, 50);
-            this.TextBoxDetail.Multiline = true;
-            this.TextBoxDetail.Name = "TextBoxDetail";
-            this.TextBoxDetail.Size = new System.Drawing.Size(417, 186);
-            this.TextBoxDetail.TabIndex = 3;
-            // 
-            // ButtonCertain
-            // 
-            this.ButtonCertain.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.ButtonCertain.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.ButtonCertain.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.ButtonCertain.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ButtonCertain.Location = new System.Drawing.Point(263, 242);
-            this.ButtonCertain.Name = "ButtonCertain";
-            this.ButtonCertain.Size = new System.Drawing.Size(119, 42);
-            this.ButtonCertain.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ButtonCertain.TabIndex = 4;
-            this.ButtonCertain.Text = "确定";
-            // 
-            // ButtonCancel
-            // 
-            this.ButtonCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.ButtonCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.ButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.ButtonCancel.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ButtonCancel.Location = new System.Drawing.Point(417, 242);
-            this.ButtonCancel.Name = "ButtonCancel";
-            this.ButtonCancel.Size = new System.Drawing.Size(119, 42);
-            this.ButtonCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ButtonCancel.TabIndex = 5;
-            this.ButtonCancel.Text = "取消";
+            this.TextBoxSummary.Border.Class = "TextBoxBorder";
+            this.TextBoxSummary.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TextBoxSummary.Location = new System.Drawing.Point(119, 10);
+            this.TextBoxSummary.Name = "TextBoxSummary";
+            this.TextBoxSummary.Size = new System.Drawing.Size(417, 26);
+            this.TextBoxSummary.TabIndex = 0;
             // 
             // ItemDetail
             // 
-            this.AcceptButton = this.ButtonCertain;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.ButtonCancel;
