@@ -116,6 +116,7 @@ namespace Plan
         private void ToolStripMenuItemAdd_Click(object sender, System.EventArgs e)
         {
             ItemDetail fItemDetail = new ItemDetail();
+            fItemDetail.SummaryInfo = DateTime.Now.ToShortDateString();
             if (fItemDetail.ShowDialog() == DialogResult.OK)
             {
                 this.m_formPlanDataLayer.HandlePlanData(this.ListBoxPlan, Operate.Add, fItemDetail.SummaryInfo, fItemDetail.DetailInfo);
