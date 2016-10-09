@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Raiders3D", "Raiders3D\Raid
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Main", "Main\Main.vcxproj", "{07F9251B-863C-4CCC-90BD-EAD2C01A474B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Main_I", "Main_I\Main_I.vcxproj", "{56430675-8376-4A80-84B1-F0CCC630AA9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,6 +21,10 @@ Global
 		{07F9251B-863C-4CCC-90BD-EAD2C01A474B}.Debug|Win32.Build.0 = Debug|Win32
 		{07F9251B-863C-4CCC-90BD-EAD2C01A474B}.Release|Win32.ActiveCfg = Release|Win32
 		{07F9251B-863C-4CCC-90BD-EAD2C01A474B}.Release|Win32.Build.0 = Release|Win32
+		{56430675-8376-4A80-84B1-F0CCC630AA9A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{56430675-8376-4A80-84B1-F0CCC630AA9A}.Debug|Win32.Build.0 = Debug|Win32
+		{56430675-8376-4A80-84B1-F0CCC630AA9A}.Release|Win32.ActiveCfg = Release|Win32
+		{56430675-8376-4A80-84B1-F0CCC630AA9A}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
