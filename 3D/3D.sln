@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Main_II", "Main_II\Main_II.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Main_III", "Main_III\Main_III.vcxproj", "{2ED0EE53-2640-46B6-B6E7-9186E8417381}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "T3DConsole", "T3DConsole\T3DConsole.vcxproj", "{C58F78E3-E816-4A5E-A35A-592F343A5F6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -37,6 +39,10 @@ Global
 		{2ED0EE53-2640-46B6-B6E7-9186E8417381}.Debug|Win32.Build.0 = Debug|Win32
 		{2ED0EE53-2640-46B6-B6E7-9186E8417381}.Release|Win32.ActiveCfg = Release|Win32
 		{2ED0EE53-2640-46B6-B6E7-9186E8417381}.Release|Win32.Build.0 = Release|Win32
+		{C58F78E3-E816-4A5E-A35A-592F343A5F6E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C58F78E3-E816-4A5E-A35A-592F343A5F6E}.Debug|Win32.Build.0 = Debug|Win32
+		{C58F78E3-E816-4A5E-A35A-592F343A5F6E}.Release|Win32.ActiveCfg = Release|Win32
+		{C58F78E3-E816-4A5E-A35A-592F343A5F6E}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
