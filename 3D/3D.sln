@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "T3DConsole", "T3DConsole\T3
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "T3DConsole_I", "T3DConsole_I\T3DConsole_I.vcxproj", "{D3DD52D2-9E0B-4EED-9199-01AF98FCD515}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Deactivate", "Deactivate\Deactivate.vcxproj", "{76BADC49-8136-40A0-9FFC-AFF8513092CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -49,6 +51,10 @@ Global
 		{D3DD52D2-9E0B-4EED-9199-01AF98FCD515}.Debug|Win32.Build.0 = Debug|Win32
 		{D3DD52D2-9E0B-4EED-9199-01AF98FCD515}.Release|Win32.ActiveCfg = Release|Win32
 		{D3DD52D2-9E0B-4EED-9199-01AF98FCD515}.Release|Win32.Build.0 = Release|Win32
+		{76BADC49-8136-40A0-9FFC-AFF8513092CC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{76BADC49-8136-40A0-9FFC-AFF8513092CC}.Debug|Win32.Build.0 = Debug|Win32
+		{76BADC49-8136-40A0-9FFC-AFF8513092CC}.Release|Win32.ActiveCfg = Release|Win32
+		{76BADC49-8136-40A0-9FFC-AFF8513092CC}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
