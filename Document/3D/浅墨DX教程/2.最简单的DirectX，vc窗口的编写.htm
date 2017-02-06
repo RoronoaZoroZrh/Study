@@ -1,0 +1,1426 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>  
+
+    <script type="text/javascript" src="http://c.csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script>  
+
+    <script type="text/javascript">
+        var protocol = window.location.protocol;
+        document.write('<script type="text/javascript" src="' + protocol + '//csdnimg.cn/pubfooter/js/repoAddr2.js?v=' + Math.random() + '"></' + 'script>');
+    </script>
+
+  
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <title>【 Visual C++】游戏开发笔记之二——最简单的DirectX，vc窗口的编写 - 【C++游戏编程】毛星云（浅墨）的专栏
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="ADB server didn&#39;t ACK 这个问题会困恼很多的新手朋友，我以前刚开始做Android的时候也遇到过这个问题，不过自己百度，google啥的，也不知道怎么就给解决了，看到群里很多新手朋友都会问这个问题，说实话我也没有一个解决这个问题的终极方法（百试百灵的那种，哈哈），自己没遇到也没有认真的去对待他，今天，就是在今天，我打开Eclipse连上手机，准备调试程序，出现如下的信息Th" />
+    <script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript" src="http://static.blog.csdn.net/scripts/jquery-version.js"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+        <!--new top-->
+               <link rel="stylesheet" href="http://c.csdnimg.cn/public/common/toolbar/css/index.css">        <!--new top-->
+    
+      <!-- ad begin -->
+         <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/tracking.js"></script>
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/dark1/css/style.css?v=1.1" />
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/zhmxy555/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/blue_green.css" />
+ 
+
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</head>
+<body>
+
+
+    <!-- 广告位开始 -->
+        <ins data-revive-zoneid="149" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/poem_qianmo">【C++游戏编程】毛星云（浅墨）的专栏</a></h2>
+            <h3>「Talk is cheap. Show me the code」</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+     
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>           
+                <li id="btnContents"><a href="http://blog.csdn.net/poem_qianmo?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/poem_qianmo?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/poem_qianmo/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "zhmxy555";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/poem_qianmo";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://bss.csdn.net/m/topic/edu_exam
+">
+<font color=blue>2017直通软考，拿证无忧
+
+
+</font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp
+
+<a href="http://edu.csdn.net/huiyiCourse/detail/274
+">
+<font color=red>程序员简历优化指南！ 
+</font></a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/PK.html">
+<font color=blue>【观点】移动原生App开发 PK HTML 5开发
+</font></a>
+
+&nbsp;&nbsp;&nbsp;
+
+<a href="http://bss.csdn.net/m/product/aliyun_essay/index
+">
+<font color=red>云端应用征文大赛，秀绝招，赢无人机！
+</font></a>
+
+
+</div>                        </div>
+                        
+
+
+
+  
+<link href="http://static.blog.csdn.net/css/comment1.css" type="text/css" rel="stylesheet" />
+<link href="http://static.blog.csdn.net/css/style1.css" type="text/css" rel="stylesheet" />
+<script language='JavaScript' type='text/javascript' src='http://download.csdn.net/js/jquery.cookie.js'></script>
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/search-service/main.js"></script>
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0" />
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/category.css?v=1.0" />
+<script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/web-storage-cache.min.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/replace.min.js"></script>
+
+
+
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+      
+      var fasrc="http://my.csdn.net/my/favorite/miniadd?t=%e3%80%90+Visual+C%2b%2b%e3%80%91%e6%b8%b8%e6%88%8f%e5%bc%80%e5%8f%91%e7%ac%94%e8%ae%b0%e4%b9%8b%e4%ba%8c%e2%80%94%e2%80%94%e6%9c%80%e7%ae%80%e5%8d%95%e7%9a%84DirectX%ef%bc%8cvc%e7%aa%97%e5%8f%a3%e7%9a%84%e7%bc%96%e5%86%99&u=http://blog.csdn.net/poem_qianmo/article/details/7318634"
+
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Original"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/poem_qianmo/article/details/7318634">
+        【 Visual C++】游戏开发笔记之二——最简单的DirectX，vc窗口的编写            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_l">
+            <span class="link_categories">
+            标签：
+              <a href='http://www.csdn.net/tag/%e6%b8%b8%e6%88%8f' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">游戏</a><a href='http://www.csdn.net/tag/c%2b%2b' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">c++</a><a href='http://www.csdn.net/tag/direct3d' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">direct3d</a><a href='http://www.csdn.net/tag/parameters' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">parameters</a><a href='http://www.csdn.net/tag/null' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">null</a>
+            </span>
+        </div>
+        <div class="article_r">
+            <span class="link_postdate">2012-03-04 19:53</span>
+            <span class="link_view" title="阅读次数">49681人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(86)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('%e3%80%90+Visual+C%2b%2b%e3%80%91%e6%b8%b8%e6%88%8f%e5%bc%80%e5%8f%91%e7%ac%94%e8%ae%b0%e4%b9%8b%e4%ba%8c%e2%80%94%e2%80%94%e6%9c%80%e7%ae%80%e5%8d%95%e7%9a%84DirectX%ef%bc%8cvc%e7%aa%97%e5%8f%a3%e7%9a%84%e7%bc%96%e5%86%99','7318634');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(7318634,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('1091031','zhmxy555','top','7318634');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">【DirectX】<em>（32）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/zhmxy555/article/category/1091031"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_1091031">                            
+                            </ul>
+                        </div>
+                    </label>                    
+                    <label  onclick="GetCategoryArticles('1104646','zhmxy555','top','7318634');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">【Visual C++】游戏开发<em>（55）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/zhmxy555/article/category/1104646"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_1104646">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+    <script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>  
+
+  
+
+  
+  
+     
+
+<div id="article_content" class="article_content">
+<p><span style="font-family:'Microsoft YaHei';font-size:16px;"><br /></span></p><p><span style="font-family: 'Microsoft YaHei'; font-size: 16px; "><br /></span></p><p><span style="font-family: 'Microsoft YaHei'; font-size: 16px; ">笔记一中我们介绍了如何用代码创建空的win32窗口，然而创建空的win32窗口只完成了一半的工作，接下来要做的工作是设置Direct3D，从而可以在屏幕上渲染图形。</span><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="white-space:pre"></span></span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span><p><span style="font-family:'Microsoft YaHei'; font-size:16px">Direct3D要调用很多函数才能成功设置API。一旦完成设置，并且设置成功，就可以向屏幕上渲染图形。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px">下面是函数中设置Direct3D所需的最少代码。</span></p><span style="font-family:'Microsoft YaHei';font-size:16px;"><br /></span><br /><pre code_snippet_id="317337" snippet_file_name="blog_20140428_1_9610554"  name="code" class="cpp">bool InitializeD3D(HWND hWnd, bool fullscreen)
+{
+D3DDISPLAYMODE displayMode;
+// Create the D3D object.
+g_D3D = Direct3DCreate9(D3D_SDK_VERSION);
+if(g_D3D == NULL) return false;
+// Get the desktop display mode.
+if(FAILED(g_D3D-&gt;GetAdapterDisplayMode(D3DADAPTER_DEFAULT, &amp;displayMode)))
+return false;
+// Set up the structure used to create the D3DDevice
+D3DPRESENT_PARAMETERS d3dpp;
+ZeroMemory(&amp;d3dpp, sizeof(d3dpp));
+if(fullscreen)
+{
+d3dpp.Windowed = FALSE;
+d3dpp.BackBufferWidth = 640;
+d3dpp.BackBufferHeight = 480;
+}
+else
+d3dpp.Windowed = TRUE;
+d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
+d3dpp.BackBufferFormat = displayMode.Format;
+// Create the D3DDevice
+if(FAILED(g_D3D-&gt;CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd,
+D3DCREATE_SOFTWARE_VERTEXPROCESSING, &amp;d3dpp, &amp;g_D3DDevice)))
+{
+return false;
+}
+return true;
+}</pre><br /><br /><blockquote style="margin:0 0 0 40px; border:none; padding:0px"><div><p><span style="font-family:'Microsoft YaHei'; font-size:16px"></span></p></div></blockquote><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span><p><span style="font-family:'Microsoft YaHei'; font-size:16px">上段代码中的InitializeD3D函数的参数有窗口句柄hWnd，标识窗口是否全屏的标识符fullscreen。窗口句柄是在调用CreateWindows()函数创建窗口句柄时，返回给WinMain（）函数的数值。InitializeD3D()函数开始先调用Direct3DCreat9()函数。Direct3DCreat9()函数将创建一个Direct3D接口对象，并返回该对象。该函数所带的参数值为D3D_SDK_VERSION。如果从该函数创建的接口不为NULL（空），那么接口创建成功。如果是NULL，那么创建接口时就会出错。其他步骤很大程度上取决于是否成功调用Direct3DCreat9()函数，所以一旦出现错误，就会立刻退出Direct3D初始化程序。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span><span style="font-family:'Microsoft YaHei'; font-size:16px">接下来调用的是GetAdapterDisplayMode()</span><br /><span style="font-family:'Microsoft YaHei'; font-size:16px">函数。该函数将返回当前的显示信息，如桌面分辨率（宽度和高度），显示格式，显示器的刷新频率等。该函数的参数包括正在查询的适配器以及保存信息的显示模式对象。将D3DADAPTER_DEFAULT发送给函数，详细说明代码，通过这些代码可以获取想要的主显卡信息。</span><br /><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span><p><span style="font-family:'Microsoft YaHei'; font-size:16px">检索显卡信息之后，函数接下来会创建D3DPRESENT_PARAMETERS对象。D3DPRESENT_PARAMETERS结构用于定义Direct3D窗口的显示信息。这样可以设置正在创建窗口的期望宽度和高度，刷新率，显示模式为全屏或窗口，后天缓存数目等。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><span style="font-family:'Microsoft YaHei'; font-size:16px">D3DPRESENT_PARAMETERS结构体的定义：</span><br /><br /><span style="font-family:monospace;"><span style="white-space: pre;"><br /></span></span><p><span style="font-family: 'Microsoft YaHei'; font-size: 16px; "></span></p><pre code_snippet_id="317337" snippet_file_name="blog_20140428_2_4845215"  name="code" class="cpp">typedef struct _D3DPRESENT_PARAMETERS_ {
+UINT BackBufferWidth; //窗口宽度
+UINT BackBufferHeight; //窗口高度
+D3DFORMAT BackBufferFormat; //渲染后台缓存的格式
+UINT BackBufferCount; //想要用于渲染的后台缓存总数
+D3DMULTISAMPLE_TYPE MultiSampleType;
+D3DSWAPEFFECT SwapEffect;
+HWND hDeviceWindow;
+BOOL Windowed;
+BOOL EnableAutoDepthStencil;
+D3DFORMAT AutoDepthStencilFormat;
+DWORD Flags;
+UINT FullScreen_RefreshRateInHz;
+UINT FullScreen_PresentationInterval;
+} D3DPRESENT_PARAMETERS;
+</pre><br /><br /><p></p><p><span style="font-family: 'Microsoft YaHei'; font-size: 16px; ">D3DPRESENT_PARAMETERS结构体是的前两个变量是BackBufferWidth（&nbsp;窗口宽度&nbsp;），BackBufferHeight（窗口高度）。接下来的变量BackBufferFormat代表渲染后台缓存的格式。将D3DFMT_DEFAULT发送给该参数，就会得到所要用到的桌面格式。该参数可以接收的其他参数值分别是D3DFMT_A2R10G10B10(红、绿、蓝各10位，Alpha通道2位，总计32位)，D3DFMT_A8R8G8B8(红、绿、蓝Alpha各8位，总计32位)、D3DFMT_X8R8G8B8、D3DFMT_AIR5G5B5、D3DFMT_XIR5G5B5和D3DFMT_R5G5B5。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="white-space:pre"></span>BcakBufferCount是想要用于渲染的后台缓存总数。通常，使用一个后台缓存和一个主缓存，使用多个缓存会使动画更流畅，因为后台缓存上绘制内容，然后将结果复制到主缓存，主缓存将其显示在屏幕上。如果所有的事情都在主缓存处理，那么游戏玩家在玩游戏时，会看到正在刷新的屏幕，从而会产生视觉假象，破坏游</span><br /><span style="font-family:'Microsoft YaHei'; font-size:16px">戏的视觉效果。成员变量MultiSampleType、MultiSampleQuality和SwapEffect处理交换效果。hDeviceWindow是调用WinMain()中的CreateWindow()函数创建的窗口句柄。Windowed标识符用于指定创建的窗口是否是全屏窗口。</span><br /><p><span style="font-family:'Microsoft YaHei'; font-size:16px">EnableAutoDepthStencil标识符用于设置是否用Direct3D管理缓存深度以及模板缓存。AutoDepthStencilFormat将深度和模板缓存设置为BackBufferFormat可以使用的相同值之一。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="white-space:pre"></span>结构中的最后三个变量分别是Flags、FullScreen_RefreshRateInHz和PresentationInterval。Flags标识符可以是D3DPRESENTFLAG_DEVICECLIP、D3DPRESENTFLAG_DISCARD_DEPTHSTENCIL和D3DPRESENTFLAG_LOCKABLE_&nbsp;BUFFER或D3DPRESENTFLAG_VIDEO的任意组合。变量FullScreen_RefreshRateInHz存储显示器的刷新率。对窗口模式程序而言，该值必须为0，但对全屏模式而言，该值取决于显示器。对此，可以调用GetDisplayAdapter()函数获取显示模式。最后一个变量PresentationInterval处理可以显示的交换链的后台缓存的最大次数。交换链主要让程序有多个窗口在桌面上同时显示(每个渲染自己的窗口)本书不涉及交换链的讨论，所以这里将不使用该变量。程序清单1.3&nbsp;InitializeD3D()函数中调用的最后一个函数是CreateDevice()。该函数主要负责创建Direct3D设备对象，该对象用于向屏幕渲染图形。如果函数失败，最后一个参数(对象被发送给ppReturnedDeviceInterface)将为NULL(空)。测试函数是否失败的另一种方法是判断函数的返回值是否是D3D_OK以外的其他值。如果不是D3D_OK，则意味着创建过程中出现了问题，而且不会按照给定的规格创建设备。下面的代码给出了CreateDevice()的函数原型。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px">CreateDevice()函数原型代码如下：</span></p><p><span style="font-family: monospace; white-space: pre; background-color: rgb(240, 240, 240); "><br /></span></p><p><span style="font-family: 'Microsoft YaHei'; font-size: 16px; "></span></p><pre code_snippet_id="317337" snippet_file_name="blog_20140428_3_8891396"  name="code" class="cpp">HRESULT CreateDevice( UINT Adapter,
+D3DDEVTYPE DeviceType,
+HWND hFocusWindow,
+DWORD BehaviorFlags,
+D3DPRESENT_PARAMETERS *pPresentationParameters,
+IDirect3DDevice9 **ppReturnedDeviceInterface
+);</pre><br /><br /><p></p><p><span style="font-family: 'Microsoft YaHei'; font-size: 16px; "><br /></span></p><p><span style="font-family: 'Microsoft YaHei'; font-size: 16px; ">CreateDevice()函数中的第一个参数是Adapter。该参数用于指定正在使用的显卡。第二个参数DeviceType是一个标识符，用于指定Direct3D中的渲染方式。该参数的参数值可以是采用硬件渲染的D3DDEVTYPE_HAL、采用软件渲染的D3DDEVTYPE_REF、不需要软硬件支持的D3DDEVTYPE_NULLREF，或是采用要进行渲染工作的可插拔软件的D3DDEVTYPE_SW。软件渲染标识符允许运行Direct3D程序，它可以使用硬件不支持的特性。软件渲染存在的问题是渲染速度慢，尤其是在开发游戏时。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px">下一参数hFocusWindow也是一个窗口句柄。参数BehaviorFlags是标识符组合，用于指定设备的运行方式。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="white-space:pre"></span>pPresentationParameter是一个指针，它指向该函数前面创建的D3DPRESENT_PARAMTERS结构。ppReturnedDeviceInterface是一个指针，它指向新创建的Direct3D设备对象。如果该对象为NULL(空)，或是函数返回除D3D_OK以外的值，那么Direct3D设备的创建失败。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px">一旦完成Direct3D的设置和创建，就可以随意渲染屏幕。初始化阶段的CreateDevice()函数中创建的设备对象可以完成Direct3D中的渲染工作。渲染屏幕开始先要清屏为指定的颜色，告知Direct3D将要开始绘制新场景，渲染想要渲染的物体，完成屏幕渲染，在屏幕上显示渲染结果。代码1.6给出了验证这个过程的例子代码。例子代码创建简单的显示空白黑屏的函数。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><span style="font-family:'Microsoft YaHei'; font-size:16px">在屏幕上绘制一个空白屏的代码：</span><br /><br /><br /><blockquote style="margin:0 0 0 40px; border:none; padding:0px"><div><p><span style="font-family:'Microsoft YaHei'; font-size:16px"></span></p></div></blockquote><span style="font-family:monospace;"><span style="white-space: pre;"></span></span><pre code_snippet_id="317337" snippet_file_name="blog_20140428_4_9905935"  name="code" class="cpp">void RenderScene()
+{
+// Clear the backbuffer.
+g_D3DDevice-&gt;Clear(0, NULL, D3DCLEAR_TARGET,
+D3DCOLOR_XRGB(0,0,0), 1.0f, 0);
+// Begin the scene. Start rendering.
+g_D3DDevice-&gt;BeginScene();
+// End the scene. Stop rendering.
+g_D3DDevice-&gt;EndScene();
+// Display the scene.
+g_D3DDevice-&gt;Present(NULL, NULL, NULL, NULL);
+}
+</pre><br /><br /><br /><br /><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="white-space:pre"></span>RenderScene()函数开始先清除后台缓存。调用Direct3D设备对象的Clear()函数可以完成该工作。Clear()函数的参数包括：要清除的矩形数目(0代表清除整个屏幕)、定义想要清除的屏幕区域矩形链表(NULL代表整个屏幕)、标识要清除内容的标识符、清除后的颜色、要设定的深度值、设定模板缓存值。对标识符参数而言，D3DCLEAR_DEFAULT清除所有的渲染目标，D3DCLEAR_STENCIL清除模板缓存，而D3DCLEAR_ZBUFFER清除深度缓存。后面将会更多地介绍深度缓存。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="white-space:pre"></span>一旦完成清除工作，渲染函数将调用设备对象的BeginScene()函数，在Direct3D中启动一个新场景。在Direct3D中渲染任何图形前，都必须先调用BeginScene()函数。一旦渲染完要渲染的物体，就调用设备对象的EndScene()函数结束渲染。记住：每个BeginScene()函数必须有一个与之对应的EndScene()函数。由于这里只是绘制了一个空白窗口，所以在BeginScene()和EndScene()之间不需要添加任何代码。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="white-space:pre"></span>最后一步是在屏幕上显示渲染结果。调用设备对象的Present()函数可以完成显示。就目前的学习而言，Present()函数的参数可以全部设为NULL(空)。第一个参数是正在显示的原始矩形，如果不使用交换链，那么该值必须为NULL(空)。第二个参数是一个指针，它指向要渲染的最终矩形。第三个参数是正在显示的窗口的窗口句柄。另外，由于没有用到交换链，所以对正在使用的窗口句柄而言，该值设为NULL(空)。这个正在使用的窗口句柄是在Direct3D初始化过程中为D3DPRESENT_PARAMETERS对象设置的窗口句柄。Present()函数中的最后一个参数是缓存区域，它代表需要更新的最小区域。同样，该参数涉及到交换链，也可以设为NULL(空)。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><span style="white-space:pre"></span>既然可以使用Direct3D初始化和渲染屏幕，那么剩下要做的工作是在退出程序时，释放对象。在Direct3D中，会发现通常要在退出程序前释放系统使用的内存，从而避免内存泄漏。所有要释放的内存都可以通过调用对象的Release()函数释放。Release()函数会减少对象的引用计数。如果引用计数降为0，那么系统就可以安全地从内存中删除对象。如果对单个对象有多个引用，那么必须牢记对所有的对象都要调用Release()函数，否则将不会释放内存。要牢记的规则就是：如果创建了对象，那么最终就要释放该对象。下述代码给出了在一个名为Shutdown()的函数中释放两个Direct3D对象的方法。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><span style="font-family:'Microsoft YaHei'; font-size:16px">释放所有的Direct3D对象的代码</span><br /><br /><blockquote style="margin:0 0 0 40px; border:none; padding:0px"><div><p><span style="font-family:'Microsoft YaHei'; font-size:16px"></span></p></div></blockquote><p><span style="font-family:'Microsoft YaHei'; font-size:16px"></span></p><pre code_snippet_id="317337" snippet_file_name="blog_20140428_5_6460372"  name="code" class="cpp">void Shutdown()
+{
+if(g_D3DDevice != NULL) g_D3DDevice-&gt;Release();
+if(g_D3D != NULL) g_D3D-&gt;Release();
+g_D3DDevice = NULL;
+g_D3D = NULL;
+}</pre><p></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px">到这里，基本的模块都已经一目了然了，下面我们把他串联起来，构成一个整体。</span></p><span style="font-family:'Microsoft YaHei'; font-size:16px">&nbsp;完整的Blank&nbsp;Window演示程序代码如下：</span><br /><span style="font-family:'Microsoft YaHei'"><br /></span><pre code_snippet_id="317337" snippet_file_name="blog_20140428_6_7267167"  name="code" class="cpp">#include&lt;d3d9.h&gt;
+#pragma comment(lib, &quot;d3d9.lib&quot;)
+#pragma comment(lib, &quot;d3dx9.lib&quot;)
+#define WINDOW_CLASS &quot;UGPDX&quot;
+#define WINDOW_NAME &quot;Blank D3D Window&quot;
+// Function Prototypes...
+bool InitializeD3D(HWND hWnd, bool fullscreen);
+void RenderScene();
+void Shutdown();
+// Direct3D object and device.
+LPDIRECT3D9 g_D3D = NULL;
+LPDIRECT3DDEVICE9 g_D3DDevice = NULL;
+LRESULT WINAPI MsgProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+switch(msg)
+{
+case WM_DESTROY:
+PostQuitMessage(0);
+return 0;
+break;
+case WM_KEYUP:
+if(wParam == VK_ESCAPE) PostQuitMessage(0);
+break;
+}
+return DefWindowProc(hWnd, msg, wParam, lParam);
+}
+int WINAPI WinMain(HINSTANCE hInst, HINSTANCE prevhInst, LPSTR cmdLine, int show)
+{
+// Register the window class
+WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, MsgProc, 0L, 0L,
+GetModuleHandle(NULL), NULL, NULL, NULL, NULL,
+WINDOW_CLASS, NULL };
+RegisterClassEx(&amp;wc);
+// Create the application's window
+HWND hWnd = CreateWindow(WINDOW_CLASS, WINDOW_NAME, WS_OVERLAPPEDWINDOW,
+100, 100, 640, 480, GetDesktopWindow(), NULL,
+wc.hInstance, NULL);
+// Initialize Direct3D
+if(InitializeD3D(hWnd, false))
+{
+// Show the window
+ShowWindow(hWnd, SW_SHOWDEFAULT);
+UpdateWindow(hWnd);
+// Enter the message loop
+MSG msg;
+ZeroMemory(&amp;msg, sizeof(msg));
+while(msg.message != WM_QUIT)
+{
+if(PeekMessage(&amp;msg, NULL, 0U, 0U, PM_REMOVE))
+{
+TranslateMessage(&amp;msg);
+DispatchMessage(&amp;msg);
+}
+else
+RenderScene();
+}
+}
+// Release any and all resources.
+Shutdown();
+// Unregister our window.
+UnregisterClass(WINDOW_CLASS, wc.hInstance);
+return 0;
+}
+bool InitializeD3D(HWND hWnd, bool fullscreen)
+{
+D3DDISPLAYMODE displayMode;
+// Create the D3D object.
+g_D3D = Direct3DCreate9(D3D_SDK_VERSION);
+if(g_D3D == NULL) return false;
+// Get the desktop display mode.
+if(FAILED(g_D3D-&gt;GetAdapterDisplayMode(D3DADAPTER_DEFAULT, &amp;displayMode)))
+return false;
+// Set up the structure used to create the D3DDevice
+D3DPRESENT_PARAMETERS d3dpp;
+ZeroMemory(&amp;d3dpp, sizeof(d3dpp));
+if(fullscreen)
+{
+d3dpp.Windowed = FALSE;
+d3dpp.BackBufferWidth = 640;
+d3dpp.BackBufferHeight = 480;
+}
+else
+d3dpp.Windowed = TRUE;
+d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
+d3dpp.BackBufferFormat = displayMode.Format;
+// Create the D3DDevice
+if(FAILED(g_D3D-&gt;CreateDevice(D3DADAPTER_DEFAULT, D3DDEVTYPE_HAL, hWnd,
+D3DCREATE_SOFTWARE_VERTEXPROCESSING, &amp;d3dpp, &amp;g_D3DDevice)))
+{
+return false;
+}
+return true;
+}
+void RenderScene()
+{
+// Clear the backbuffer.
+g_D3DDevice-&gt;Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0,0,0), 1.0f, 0);
+// Begin the scene. Start rendering.
+g_D3DDevice-&gt;BeginScene();
+// End the scene. Stop rendering.
+g_D3DDevice-&gt;EndScene();
+// Display the scene.
+g_D3DDevice-&gt;Present(NULL, NULL, NULL, NULL);
+}
+void Shutdown()
+{
+if(g_D3DDevice != NULL) g_D3DDevice-&gt;Release();
+if(g_D3D != NULL) g_D3D-&gt;Release();
+}
+</pre><br /><br /><blockquote style="margin:0 0 0 40px; border:none; padding:0px"><div><p><span style="font-family:'Microsoft YaHei'; font-size:16px"></span></p></div></blockquote><br /><br /><p><span style="font-family:'Microsoft YaHei'; font-size:16px">只要成功安装了DirectX&nbsp;SDK，并配置好DirectX的开发环境，则万事俱备。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px">我们先编译该程序，然后运行它。我们可以看到一个640×480分辨率的空白窗口。</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px">下面给出了运行后的窗口截图：</span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><img src="http://hi.csdn.net/attachment/201203/4/0_13308623496a7g.gif" alt="" data-pinit="registered" /></span></p><p><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><p><span style="font-family:'Microsoft YaHei'"><br /></span></p><p><span style="font-family:'Microsoft YaHei'"><span style="font-family:Arial; font-size:14px; line-height:26px"></span></span></p><div><p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px"><span style="font-family:'Microsoft YaHei'; font-size:16px"><br /></span></p><p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px"><span style="font-family:'Microsoft YaHei'; font-size:16px">以上就是本节笔记的全部内容。</span></p><p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px"><span style="font-family:'Microsoft YaHei'; font-size:16px">本节源代码请点击这里下载：<a target=_blank href="http://download.csdn.net/detail/zhmxy555/4175074" target="_blank">【Visual C++】Code_Note_2</a></span></p></div><div><p style="margin-top:0px; margin-bottom:0px; padding-top:0px; padding-bottom:0px"><span style="font-size:16px"><br /></span></p></div><p></p><div><p><span style="font-family:'Microsoft YaHei'; font-size:16px">The end</span></p></div><div><p><span style="font-family:'Microsoft YaHei'; font-size:16px"></span></p></div><div><p><span style="font-family:'Microsoft YaHei'; font-size:16px"></span></p></div><div><p><br /><br /><blockquote style="font-family: Arial; font-size: 14px; line-height: 26px; margin: 0px 0px 0px 40px; border: none; padding: 0px;"><p style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px; text-align: center;"><span style="font-family: 'Microsoft YaHei';">------------------------------------------------------------------------------------------------------------------------------</span></p><p style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;"><span style="margin: 0px; padding: 0px;"><span style="font-family: 'Microsoft YaHei';"><span style="margin: 0px; padding: 0px;"></span></span></span></p></blockquote><span style="font-family: Arial; font-size: 14px; line-height: 26px; white-space: pre;"><span style="font-family: 'Microsoft YaHei';"></span></span><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="font-family: 'Microsoft YaHei';"><strong><span style="color: rgb(0, 153, 0);">浅墨历时一年为游戏编程爱好者锻造的著作</span><span style="color: rgb(153, 153, 153);">：</span><span style="color: rgb(204, 0, 0);">《逐梦旅程：Windows游戏编程之从零开始》</span></strong></span></div><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="line-height: 14.399999618530273px;"><span style="font-family: 'Microsoft YaHei';"><br /></span></span></div><span style="font-family: 'Microsoft YaHei'; font-size: 14px; line-height: 26px;"><span style="line-height: 14.399999618530273px; white-space: pre;"></span></span><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="font-family: 'Microsoft YaHei';">如果你喜欢浅墨写的【Visual C++】游戏开发系列博客文章，那么你一定会爱上这本书。</span></div><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="line-height: 14.399999618530273px;"><span style="font-family: 'Microsoft YaHei';"><br /></span></span></div><span style="font-family: 'Microsoft YaHei'; font-size: 14px; line-height: 26px;"><span style="line-height: 14.399999618530273px; white-space: pre;"></span></span><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="font-family: 'Microsoft YaHei';">这是浅墨专门为热爱游戏编程的朋友们写的入门级游戏编程宝典。</span></div></p><p style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px; font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"></p><blockquote style="font-family: Arial; font-size: 14px; line-height: 26px; margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><p style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;"><span style="margin: 0px; padding: 0px;"><span style="font-family: 'Microsoft YaHei';"><span style="margin: 0px; padding: 0px;"></span></span></span></p><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="font-family: 'Microsoft YaHei';"><img src="http://img.blog.csdn.net/20131101013038796?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcG9lbV9xaWFubW8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" data-pinit="registered" width="200" height="200" alt="" style="max-width: 100%; border: none; line-height: 14.399999618530273px;" /></span></div><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="line-height: 14.399999618530273px;"><span style="font-family: 'Microsoft YaHei';"><br /></span></span></div><span style="font-family: 'Microsoft YaHei'; font-size: 14px; line-height: 26px;"></span><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="font-family: 'Microsoft YaHei';"><strong><a target=_blank target="_blank" href="http://pan.baidu.com/s/1kTjwDDX" style="color: rgb(255, 0, 0); text-decoration: none;">彩版样章试读PDF免费下载</a>|</strong><span style="color: rgb(51, 204, 51);"><strong><a target=_blank target="_blank" href="http://pan.baidu.com/s/13PVB3" style="color: rgb(51, 204, 51); text-decoration: none;">配套源代码下载</a></strong></span></span></div><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="line-height: 14.399999618530273px;"><span style="font-family: 'Microsoft YaHei';"><br /></span></span></div><span style="font-family: 'Microsoft YaHei'; font-size: 14px; line-height: 26px;"></span><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="font-family: 'Microsoft YaHei';"><strong><a target=_blank target="_blank" href="http://blog.csdn.net/poem_qianmo/article/details/12895487" style="color: rgb(205, 0, 205); text-decoration: none;">书本维护页面|</a></strong><a target=_blank target="_blank" href="http://product.dangdang.com/23346295.html#ddclick?act=click&amp;pos=23346295_0_1_q&amp;cat=&amp;key=%D6%F0%C3%CE%C2%C3%B3%CC&amp;qinfo=2_1_48&amp;pinfo=&amp;minfo=&amp;ninfo=&amp;custid=&amp;permid=2013102101491612912464917247508366&amp;ref=http%3A%2F%2Fwww.dangdang.com%2F&amp;rcount=&amp;type=&amp;t=1382522141000" style="color: rgb(0, 153, 0); text-decoration: none;"><strong>当当网|</strong></a><span style="color: rgb(102, 102, 102);"><strong><a target=_blank target="_blank" href="http://item.jd.com/11331215.html?utm_source=p.yiqifa.com&amp;utm_medium=tuiguang&amp;utm_campaign=t_1_651210&amp;utm_term=7de26d6a7bb24369b7741f913f399c46" style="color: rgb(240, 0, 0); text-decoration: none;">京东商城|</a><a target=_blank target="_blank" href="http://www.amazon.cn/%E5%9B%BE%E4%B9%A6/dp/B00FIL0F1U" style="color: rgb(51, 102, 255); text-decoration: none;">亚马逊</a></strong></span></span></div><blockquote style="font-family: Arial; font-size: 14px; line-height: 26px; margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><p style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px; text-align: center;"></p></blockquote></blockquote><blockquote style="font-family: Arial; font-size: 14px; line-height: 26px; margin: 0px 0px 0px 40px; border: none; padding: 0px;"><p style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px; text-align: center;"><span style="margin: 0px; padding: 0px;"><span style="margin: 0px; padding: 0px;"><span style="font-family: 'Microsoft YaHei';">------------------------------------------------------------------------------------------------------------------------------</span></span></span></p></blockquote><span style="font-family:'Microsoft YaHei'; font-size:16px"></span></div><div><p><span style="font-family:'Microsoft YaHei';font-size:16px;"><br /></span><span style="font-family:'Microsoft YaHei'; font-size:16px"></span></p></div><div style="top: 5794px;"><blockquote style="font-family: Arial; font-size: 14px; line-height: 26px; margin: 0px 0px 0px 40px; border: none; padding: 0px;"><p style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px; text-align: center;"><span style="font-family: 'Microsoft YaHei';">------------------------------------------------------------------------------------------------------------------------------</span></p><p style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;"><span style="margin: 0px; padding: 0px;"><span style="font-family: 'Microsoft YaHei';"><span style="margin: 0px; padding: 0px;"></span></span></span></p></blockquote><span style="font-family: Arial; font-size: 14px; line-height: 26px; white-space: pre;"><span style="font-family: 'Microsoft YaHei';"></span></span><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="font-family: 'Microsoft YaHei';"><strong><span style="color: rgb(0, 153, 0);">浅墨历时一年为游戏编程爱好者锻造的著作</span><span style="color: rgb(153, 153, 153);">：</span><span style="color: rgb(204, 0, 0);">《逐梦旅程：Windows游戏编程之从零开始》</span></strong></span></div><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="line-height: 14.399999618530273px;"><span style="font-family: 'Microsoft YaHei';"><br /></span></span></div><span style="font-family: 'Microsoft YaHei'; font-size: 14px; line-height: 26px;"><span style="line-height: 14.399999618530273px; white-space: pre;"></span></span><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="font-family: 'Microsoft YaHei';">如果你喜欢浅墨写的【Visual C++】游戏开发系列博客文章，那么你一定会爱上这本书。</span></div><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="line-height: 14.399999618530273px;"><span style="font-family: 'Microsoft YaHei';"><br /></span></span></div><span style="font-family: 'Microsoft YaHei'; font-size: 14px; line-height: 26px;"><span style="line-height: 14.399999618530273px; white-space: pre;"></span></span><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="font-family: 'Microsoft YaHei';">这是浅墨专门为热爱游戏编程的朋友们写的入门级游戏编程宝典。</span></div><p style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px; font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"></p><blockquote style="font-family: Arial; font-size: 14px; line-height: 26px; margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><p style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px;"><span style="margin: 0px; padding: 0px;"><span style="font-family: 'Microsoft YaHei';"><span style="margin: 0px; padding: 0px;"></span></span></span></p><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote></blockquote><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="font-family: 'Microsoft YaHei';"><img src="http://img.blog.csdn.net/20131101013038796?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcG9lbV9xaWFubW8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" data-pinit="registered" width="200" height="200" alt="" style="max-width: 100%; border: none; line-height: 14.399999618530273px;" /></span></div><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="line-height: 14.399999618530273px;"><span style="font-family: 'Microsoft YaHei';"><br /></span></span></div><span style="font-family: 'Microsoft YaHei'; font-size: 14px; line-height: 26px;"></span><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="font-family: 'Microsoft YaHei';"><strong><a target=_blank target="_blank" href="http://pan.baidu.com/s/1kTjwDDX" style="color: rgb(255, 0, 0); text-decoration: none;">彩版样章试读PDF免费下载</a>|</strong><span style="color: rgb(51, 204, 51);"><strong><a target=_blank target="_blank" href="http://pan.baidu.com/s/13PVB3" style="color: rgb(51, 204, 51); text-decoration: none;">配套源代码下载</a></strong></span></span></div><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="line-height: 14.399999618530273px;"><span style="font-family: 'Microsoft YaHei';"><br /></span></span></div><span style="font-family: 'Microsoft YaHei'; font-size: 14px; line-height: 26px;"></span><div style="font-family: Arial; font-size: 14px; line-height: 26px; text-align: center;"><span style="font-family: 'Microsoft YaHei';"><strong><a target=_blank target="_blank" href="http://blog.csdn.net/poem_qianmo/article/details/12895487" style="color: rgb(205, 0, 205); text-decoration: none;">书本维护页面|</a></strong><a target=_blank target="_blank" href="http://product.dangdang.com/23346295.html#ddclick?act=click&amp;pos=23346295_0_1_q&amp;cat=&amp;key=%D6%F0%C3%CE%C2%C3%B3%CC&amp;qinfo=2_1_48&amp;pinfo=&amp;minfo=&amp;ninfo=&amp;custid=&amp;permid=2013102101491612912464917247508366&amp;ref=http%3A%2F%2Fwww.dangdang.com%2F&amp;rcount=&amp;type=&amp;t=1382522141000" style="color: rgb(0, 153, 0); text-decoration: none;"><strong>当当网|</strong></a><span style="color: rgb(102, 102, 102);"><strong><a target=_blank target="_blank" href="http://item.jd.com/11331215.html?utm_source=p.yiqifa.com&amp;utm_medium=tuiguang&amp;utm_campaign=t_1_651210&amp;utm_term=7de26d6a7bb24369b7741f913f399c46" style="color: rgb(240, 0, 0); text-decoration: none;">京东商城|</a><a target=_blank target="_blank" href="http://www.amazon.cn/%E5%9B%BE%E4%B9%A6/dp/B00FIL0F1U" style="color: rgb(51, 102, 255); text-decoration: none;">亚马逊</a></strong></span></span></div><blockquote style="font-family: Arial; font-size: 14px; line-height: 26px; margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><p style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px; text-align: center;"></p></blockquote></blockquote><blockquote style="font-family: Arial; font-size: 14px; line-height: 26px; margin: 0px 0px 0px 40px; border: none; padding: 0px;"><p style="margin-top: 0px; margin-bottom: 0px; padding-top: 0px; padding-bottom: 0px; text-align: center;"><span style="margin: 0px; padding: 0px;"><span style="margin: 0px; padding: 0px;"><span style="font-family: 'Microsoft YaHei';">------------------------------------------------------------------------------------------------------------------------------</span></span></span></p></blockquote></div>   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_detail.css" />
+
+    
+<!--172.16.140.13-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+ 
+
+
+        <div id="digg" ArticleId="7318634" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>100</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>3</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/poem_qianmo/article/details/7318276';">上一篇</span><a href="/poem_qianmo/article/details/7318276" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">DirectX开发环境的快速配置</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/poem_qianmo/article/details/7319344';">下一篇</span><a href="/poem_qianmo/article/details/7319344" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">【 Visual C++】游戏开发笔记之三——绘制图元</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+        <div class="similar_article"  style="display:none">
+                <h4>我的同类文章</h4>
+                <div class="similar_c"style="margin:20px 0px 0px 0px">
+                    <div class="similar_c_t">
+                                <label class="similar_cur">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('1091031','zhmxy555','foot','7318634');">【DirectX】<em>（32）</em></span>
+                                </label>
+                                <label class="">
+                                    <span  style="cursor:pointer"  onclick="GetCategoryArticles('1104646','zhmxy555','foot','7318634');">【Visual C++】游戏开发<em>（55）</em></span>
+                                </label>
+                    </div>
+                   
+                    <div class="similar_wrap tracking-ad" data-mod="popu_141"  style="max-height:195px;">
+                        <a href="http://blog.csdn.net" style="display:none">http://blog.csdn.net</a>
+                        <ul class="similar_list fl">                          
+                        </ul>
+
+                        <ul class="similar_list fr">                           
+                        </ul>
+                    </div>
+                </div>
+            </div>    
+    <script  type="text/javascript">
+        $(function () {
+            GetCategoryArticles('1091031', 'zhmxy555','foot','7318634');
+        });
+    </script>
+      
+</div>
+
+     <div>
+             <ins data-revive-zoneid="206" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins> 
+    </div>
+
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/zhmxy555/svc/GetSuggestContent/7318634",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ <link rel="stylesheet" href="http://static.blog.csdn.net/css/replace.css"/>
+<div id="relate" data-mod="popu_218"  class="tracking-ad">
+        <div class="relate_t">
+            <h3><span>参考知识库</span></h3>
+        </div>
+        <div class="relate_c">
+        </div>
+</div>
+ 
+
+<dl class="blog-ass-articl" id="res-relatived" > 
+    <div class="embody embody_b" id="libkeyparent"  style="display:none">
+            <span class="embody_t">更多资料请参考：</span>
+            <div class="embody_c" id="libkey"></div>
+    </div>
+
+
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+
+    <div id="adCollege" style="width: 42%;float: left;"> 
+        <script src="http://csdnimg.cn/jobreco/job_reco.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+            csdn.position.showEdu({
+                sourceType: "blog",
+                searchType: "detail",
+                searchKey: "7318634",
+                username: "",
+                recordcount: "5",
+                containerId: "adCollege" //容器DIV的id。 
+            });
+        </script> 
+    </div>  
+
+    
+     <div id="res"  data-mod="popu_36"  class="tracking-ad" style="width: 42%;float: left;margin-right: 30px;"></div>
+   
+</dl>
+
+
+<script type="text/javascript">
+    $(function () {
+        setTimeout(function () {
+            var searchtitletags = '【 Visual C++】游戏开发笔记之二——最简单的DirectX，vc窗口的编写' + ',' + $("#tags").html();
+            searchService({
+                index: 'blog',
+                query: searchtitletags,
+                from: 5,
+                size: 5,
+                appendTo: '#res',
+                url: 'recommend',
+                his: 2,
+                client: "blog_cf_enhance",
+                tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+            });
+        }, 500);
+    });    
+
+ </script>  
+
+
+    <div id="ad_cen">        
+                      <ins data-revive-zoneid="199" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    </div>  
+
+    <!-- 广告位开始 -->
+    <ins data-revive-zoneid="72" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '7318634';
+    var commentscount = 86;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js"></script>
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+<div class="tag_list" style="display:none"></div>
+  <script  language="javascript" type='text/javascript'>     
+      $(function(){
+              setTimeout(function(){
+                  $.get("/zhmxy555/svc/GetTagContent",function(data){
+                      $(".tag_list").html(data).show();
+                  });     
+              });
+          },500);                       
+ </script> 
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+</script>
+ <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/async_new.js"></script>      
+
+
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/zhmxy555" target="_blank">
+    <img src="http://avatar.csdn.net/0/4/9/1_zhmxy555.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/zhmxy555" class="user_name" target="_blank">zhmxy555</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=zhmxy555','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                       <div class="ico_expert"  onclick="javascript:location='http://blog.csdn.net/experts/rule.html'" title="CSDN认证专家" style="cursor:pointer;width:60px;height:60px;background:url('http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/bokezhuanjiamiddle.png') no-repeat" ></div>
+                <div id="bms_box">
+                                            <a  target="_blank">
+                                                    <img src="http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/zhuanlandaren.png" onmouseover="m_over_m(this,2)" onmouseout="m_out_m()" alt="5" >
+                                            </a>
+                                            <a  target="_blank">
+                                                    <img src="http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/weiruanmvp.png" onmouseover="m_over_m(this,5)" onmouseout="m_out_m()" alt="1" >
+                                            </a>
+                                            <a  target="_blank">
+                                                    <img src="http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/bokezhixing.png" onmouseover="m_over_m(this,6)" onmouseout="m_out_m()" alt="1" >
+                                            </a>
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>4623996次</span></li>
+    <li>积分：<span>36241</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog8.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：36241 </div>
+        </span>  </li>
+    <li>排名：<span>第94名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>130篇</span></li>
+    <li>转载：<span>25篇</span></li>
+    <li>译文：<span>8篇</span></li>
+    <li>评论：<span>8743条</span></li>
+</ul>
+</ul>
+</div>
+
+
+
+
+<div id="custom_column_38256015" class="panel">
+<ul class="panel_head"><span>【浅墨的第二本著作】</span></ul>
+<ul class="panel_body">
+<p style="color:#33C"><strong>&nbsp;&nbsp;&nbsp; 《OpenCV3编程入门》  </strong><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://img.blog.csdn.net/20150318173833974?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcG9lbV9xaWFubW8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" width="126" height="168" data-pinit="registered"></p>
+<p> 
+<a target="_blank" style="color:#03F" href="https://github.com/QianMo/OpenCV3-Programming-Book-Src">从GitHub下载源码|</a>
+<a target="_blank" style="color:#E13" href="http://pan.baidu.com/s/1feDqA">从百度云下载源码</a>
+<a target="_blank" style="color:#90C;" href="http://blog.csdn.net/poem_qianmo/article/details/44416709">|简介与勘误博文</a><a target="_blank" style="color:#093" href="http://book.douban.com/subject/26320896">|豆瓣</a><br><br>
+</p>
+<p><a target="_blank" style="color:#090" href="http://product.dangdang.com/23653459.html">当当</a>|<a target="_blank" style="color:#f00000;" href="http://item.jd.com/11658911.html">京东</a>|<a target="_blank" style="color:#3366ff;" href="http://www.amazon.cn/OpenCV3%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8-%E6%AF%9B%E6%98%9F%E4%BA%91/dp/B00TA4X3TC/ref=sr_1_1?ie=UTF8&amp;qid=1425726703&amp;sr=8-1&amp;keywords=opencv3">亚马逊</a>|
+
+<a target="_blank" style="color:#60F" href="http://product.china-pub.com/4581290">互动|</a><a target="_blank" style="color:#f11;" href="http://detail.tmall.com/item.htm?id=43834444076"></a>
+
+<a target="_blank" style="color:#f11;" href="http://detail.tmall.com/item.htm?id=43834444076">天猫</a><a target="_blank" style="color:#f11;" href="http://detail.tmall.com/item.htm?id=43834444076"></a></p>
+<p><br>
+PS:本书版权已经成功输出到台湾</p>
+</ul>
+</div>
+
+<div id="custom_column_30391631" class="panel">
+<ul class="panel_head"><span>【关于浅墨】</span></ul>
+<ul class="panel_body">
+<ul>
+  <li>■ 毛星云，网络ID“浅墨，90后，热爱游戏开发、游戏引擎、计算机图形学、图像处理等技术，就职于腾讯互娱。</li>
+<li>■ 微软最有价值专家</li>
+  <li>■ 著作<a target="_blank" style="color:#16F;" href="http://book.douban.com/subject/25756435/">《逐梦旅程：Windows游戏编程之从零开始》</a>、<a target="_blank" style="color:#F66" href="http://book.douban.com/subject/26320896/">《OpenCV3编程入门》</a></li>
+ 
+
+  <li>■ 中国2013年度十大杰出IT博客作者</li>
+  <li>■ CSDN 2012年博客大赛年度博客之星 </li>
+  <li>■ CSDN 2012年度十大风云专栏作者 </li>
+  <li>■ 常活跃于<a style="color:#06F" target="_blank" href="http://www.zhihu.com/people/mao-xing-yun">知乎</a>、<a style="color:#090;" target="_blank" href="http://www.douban.com/people/53426472/">豆瓣</a>等网络社区</li>
+  <li>■ 本科毕业于南京航空航天大学中国乌克兰航天联合培养班，获乌克兰国立航空航天大学与南京航空航天大学双学位</li>
+  <li>■硕士就读于南京航空航天大学航天学院（2013级硕士研究生），已于2016年三月毕业</li>
+ <li>■ 邮箱： happylifemxy#163.com(#换成@)
+</li>
+PS:平时精力有限，大家的邮件不一定都能回复，请见谅。</ul>
+</ul>
+</div>
+
+<div id="custom_column_27071655" class="panel">
+<ul class="panel_head"><span>【浅墨的第一本著作】</span></ul>
+<ul class="panel_body">
+<p style="color:#33C"><strong>《逐梦旅程：Windows游戏编程之从零开始》</strong>
+</p><p>&nbsp;</p><p><img src="http://img.blog.csdn.net/20131101013038796?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcG9lbV9xaWFubW8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="168" height="168" data-pinit="registered"></p>
+<p>&nbsp;</p><a target="_blank" style="color:#F00" href="http://pan.baidu.com/s/1kTjwDDX">彩版样章PDF免费下载</a>|
+<a target="_blank" style="color:#693" href="http://pan.baidu.com/s/13PVB3">配套源代码下载</a>
+
+<ul>
+  <li><a style="color:#093" href="http://book.douban.com/subject/25756435/">【豆瓣主页】</a></li>
+  <li><a target="_blank" style="color:#CD00CD;" href="http://blog.csdn.net/poem_qianmo/article/details/12895487">书本维护页面</a>|<a target="_blank" style="color:#090" href="http://product.dangdang.com/23346295.html#ddclick?act=click&amp;pos=23346295_0_1_q&amp;cat=&amp;key=%D6%F0%C3%CE%C2%C3%B3%CC&amp;qinfo=2_1_48&amp;pinfo=&amp;minfo=&amp;ninfo=&amp;custid=&amp;permid=2013102101491612912464917247508366&amp;ref=http%3A%2F%2Fwww.dangdang.com%2F&amp;rcount=&amp;type=&amp;t=1382522141000">当当网</a>|<a target="_blank" style="color:#f00000;" href="http://item.jd.com/11331215.html?utm_source=p.yiqifa.com&amp;utm_medium=tuiguang&amp;utm_campaign=t_1_651210&amp;utm_term=7de26d6a7bb24369b7741f913f399c46">京东商城</a>|<a target="_blank" style="color:#3366ff;" href="http://www.amazon.cn/%E5%9B%BE%E4%B9%A6/dp/B00FIL0F1U">亚马逊</a></li>
+</ul>
+</ul>
+</div>
+
+<div id="custom_column_22270084" class="panel">
+<ul class="panel_head"><span>【浅墨的微博】</span></ul>
+<ul class="panel_body">
+<ul class="panel_body">
+<iframe width="100%" height="300" class="share_self"  frameborder="0" scrolling="no" 
+
+src="http://widget.weibo.com/weiboshow/index.php?
+
+language=&width=0&height=300&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWe
+
+ibo=1&isFans=0&uid=1723155442&verifier=a1405918&dpc=1"></iframe>
+ </ul>
+</ul>
+</div><div id="panel_Category" class="panel">
+    <ul class="panel_head"><span>博客专栏</span></ul>
+    <ul class="panel_body" id="sp_column">
+    <table cellpadding="0" cellspacing="0"><tr>
+    <td style="padding:10px 10px 0 0;">
+    <a href="http://blog.csdn.net/column/details/unity3d-shader.html" target="_blank"><img src="http://img.blog.csdn.net/20151123180550489" style="width:75px;height:75px;" /></a>
+    </td>
+    <td style="padding:10px 0; vertical-align:top;">
+    <a href="http://blog.csdn.net/column/details/unity3d-shader.html" target="_blank">【浅墨Unity3D Shader编程】</a>
+    <p>文章：15篇</p>
+    <span>阅读：312241</span>
+    </td>
+    </tr></table>
+    <table cellpadding="0" cellspacing="0"><tr>
+    <td style="padding:10px 10px 0 0;">
+    <a href="http://blog.csdn.net/column/details/opencv-tutorial.html" target="_blank"><img src="http://img.blog.csdn.net/20151123175748692" style="width:75px;height:75px;" /></a>
+    </td>
+    <td style="padding:10px 0; vertical-align:top;">
+    <a href="http://blog.csdn.net/column/details/opencv-tutorial.html" target="_blank">【OpenCV】入门教程</a>
+    <p>文章：18篇</p>
+    <span>阅读：1311142</span>
+    </td>
+    </tr></table>
+    <table cellpadding="0" cellspacing="0"><tr>
+    <td style="padding:10px 10px 0 0;">
+    <a href="http://blog.csdn.net/column/details/vc-game-programming.html" target="_blank"><img src="http://img.blog.csdn.net/20151123175039661" style="width:75px;height:75px;" /></a>
+    </td>
+    <td style="padding:10px 0; vertical-align:top;">
+    <a href="http://blog.csdn.net/column/details/vc-game-programming.html" target="_blank">【Visual C++】游戏开发</a>
+    <p>文章：57篇</p>
+    <span>阅读：1996509</span>
+    </td>
+    </tr></table>
+    </ul>
+</div><div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/zhmxy555/article/category/1091021" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【工作规划】</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1091031" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【DirectX】</a><span>(33)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1092172" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【IT前沿】</a><span>(8)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1092958" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【Visual C++】</a><span>(39)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1094672" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【技术人生】</a><span>(17)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1095024" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【实用技术】</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1100898" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【Web前端】</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1102428" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【HTML5】</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1102853" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【Android】</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1102854" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【UI】</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1102862" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【博弈】</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1104646" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【Visual C++】游戏开发</a><span>(56)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1120391" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【C++】</a><span>(24)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1135435" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【LUA】脚本语言</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1146036" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【总有一天你将破蛹而出】</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1172346" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【单片机】</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1194831" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【俄语】</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1202478" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【《代码大全2》读书笔记】</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1294767" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【Visual C++】游戏开发 【游戏引擎】</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/1923021" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【OpenCV】</a><span>(19)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/2681281" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【Unity3D】</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/2681301" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【Unity3D】【Shader】</a><span>(12)</span>
+                </li>
+                 <li>
+                    <a href="/zhmxy555/article/category/6340774" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">【读书笔记】</a><span>(8)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/zhmxy555/article/month/2016/12">2016年12月</a><span>(1)</span></li><li><a href="/zhmxy555/article/month/2016/11">2016年11月</a><span>(1)</span></li><li><a href="/zhmxy555/article/month/2016/10">2016年10月</a><span>(1)</span></li><li><a href="/zhmxy555/article/month/2016/09">2016年09月</a><span>(2)</span></li><li><a href="/zhmxy555/article/month/2016/08">2016年08月</a><span>(4)</span></li><li><a href="/zhmxy555/article/month/2016/07">2016年07月</a><span>(2)</span></li><li><a href="/zhmxy555/article/month/2016/06">2016年06月</a><span>(1)</span></li><li><a href="/zhmxy555/article/month/2016/03">2016年03月</a><span>(2)</span></li><li><a href="/zhmxy555/article/month/2015/11">2015年11月</a><span>(3)</span></li><li><a href="/zhmxy555/article/month/2015/10">2015年10月</a><span>(1)</span></li><li><a href="/zhmxy555/article/month/2015/08">2015年08月</a><span>(1)</span></li><li><a href="/zhmxy555/article/month/2015/03">2015年03月</a><span>(1)</span></li><li><a href="/zhmxy555/article/month/2015/01">2015年01月</a><span>(1)</span></li><li><a href="/zhmxy555/article/month/2014/12">2014年12月</a><span>(3)</span></li><li><a href="/zhmxy555/article/month/2014/11">2014年11月</a><span>(3)</span></li><li><a href="/zhmxy555/article/month/2014/06">2014年06月</a><span>(5)</span></li><li><a href="/zhmxy555/article/month/2014/05">2014年05月</a><span>(4)</span></li><li><a href="/zhmxy555/article/month/2014/04">2014年04月</a><span>(5)</span></li><li><a href="/zhmxy555/article/month/2014/03">2014年03月</a><span>(7)</span></li><li><a href="/zhmxy555/article/month/2014/02">2014年02月</a><span>(2)</span></li><li><a href="/zhmxy555/article/month/2013/11">2013年11月</a><span>(5)</span></li><li><a href="/zhmxy555/article/month/2013/10">2013年10月</a><span>(3)</span></li><li><a href="/zhmxy555/article/month/2013/05">2013年05月</a><span>(1)</span></li><li><a href="/zhmxy555/article/month/2013/04">2013年04月</a><span>(4)</span></li><li><a href="/zhmxy555/article/month/2013/03">2013年03月</a><span>(6)</span></li><li><a href="/zhmxy555/article/month/2013/02">2013年02月</a><span>(7)</span></li><li><a href="/zhmxy555/article/month/2013/01">2013年01月</a><span>(6)</span></li><li><a href="/zhmxy555/article/month/2012/12">2012年12月</a><span>(4)</span></li><li><a href="/zhmxy555/article/month/2012/11">2012年11月</a><span>(5)</span></li><li><a href="/zhmxy555/article/month/2012/09">2012年09月</a><span>(1)</span></li><li><a href="/zhmxy555/article/month/2012/08">2012年08月</a><span>(3)</span></li><li><a href="/zhmxy555/article/month/2012/07">2012年07月</a><span>(7)</span></li><li><a href="/zhmxy555/article/month/2012/06">2012年06月</a><span>(4)</span></li><li><a href="/zhmxy555/article/month/2012/05">2012年05月</a><span>(8)</span></li><li><a href="/zhmxy555/article/month/2012/04">2012年04月</a><span>(17)</span></li><li><a href="/zhmxy555/article/month/2012/03">2012年03月</a><span>(32)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/poem_qianmo/article/details/19809337" title="【OpenCV入门教程之一】 安装OpenCV：OpenCV 3.0、OpenCV 2.4.8、OpenCV 2.4.9 +VS 开发环境配置">【OpenCV入门教程之一】 安装OpenCV：OpenCV 3.0、OpenCV 2.4.8、OpenCV 2.4.9 +VS 开发环境配置</a><span>(314134)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/7318264" title="【Visual C++】游戏开发笔记之一——API函数、DirectX的关键系统">【Visual C++】游戏开发笔记之一——API函数、DirectX的关键系统</a><span>(185903)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/20537737" title="【OpenCV入门教程之三】 图像的载入，显示和输出 一站式完全解析">【OpenCV入门教程之三】 图像的载入，显示和输出 一站式完全解析</a><span>(125136)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/23184547" title="【OpenCV入门教程之九】 非线性滤波专场：中值滤波、双边滤波">【OpenCV入门教程之九】 非线性滤波专场：中值滤波、双边滤波</a><span>(99019)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/7447864" title="【Visual C++】游戏开发笔记十六   讲解一个完整的回合制游戏demo">【Visual C++】游戏开发笔记十六   讲解一个完整的回合制游戏demo</a><span>(85549)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/19925819" title="【OpenCV入门教程之二】 一览众山小：OpenCV 2.4.8 or OpenCV 2.4.9组件结构全解析">【OpenCV入门教程之二】 一览众山小：OpenCV 2.4.8 or OpenCV 2.4.9组件结构全解析</a><span>(83394)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/12895487" title="【浅墨著作】《逐梦旅程：Windows游戏编程之从零开始》勘误&amp;配套源代码下载">【浅墨著作】《逐梦旅程：Windows游戏编程之从零开始》勘误&amp;配套源代码下载</a><span>(80995)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/7522960" title="【Visual C++】游戏开发笔记十九 DirectX与OpenGL的博弈">【Visual C++】游戏开发笔记十九 DirectX与OpenGL的博弈</a><span>(75631)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/20911629" title="【OpenCV入门教程之四】 ROI区域图像叠加&amp;初级图像混合 全剖析">【OpenCV入门教程之四】 ROI区域图像叠加&amp;初级图像混合 全剖析</a><span>(71974)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/8250057" title="【Visual C++】游戏开发笔记三十五  站在巨人的肩膀上：游戏引擎导论">【Visual C++】游戏开发笔记三十五  站在巨人的肩膀上：游戏引擎导论</a><span>(67038)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/poem_qianmo/article/details/7318264" title="【Visual C++】游戏开发笔记之一——API函数、DirectX的关键系统">【Visual C++】游戏开发笔记之一——API函数、DirectX的关键系统</a><span>(977)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/19809337" title="【OpenCV入门教程之一】 安装OpenCV：OpenCV 3.0、OpenCV 2.4.8、OpenCV 2.4.9 +VS 开发环境配置">【OpenCV入门教程之一】 安装OpenCV：OpenCV 3.0、OpenCV 2.4.8、OpenCV 2.4.9 +VS 开发环境配置</a><span>(549)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/7447864" title="【Visual C++】游戏开发笔记十六   讲解一个完整的回合制游戏demo">【Visual C++】游戏开发笔记十六   讲解一个完整的回合制游戏demo</a><span>(310)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/12895487" title="【浅墨著作】《逐梦旅程：Windows游戏编程之从零开始》勘误&amp;配套源代码下载">【浅墨著作】《逐梦旅程：Windows游戏编程之从零开始》勘误&amp;配套源代码下载</a><span>(249)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/8499438" title="【Visual C++】游戏开发笔记四十 浅墨DirectX教程之八 绘制真实质感的三维世界：光照与材质专场">【Visual C++】游戏开发笔记四十 浅墨DirectX教程之八 绘制真实质感的三维世界：光照与材质专场</a><span>(162)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/20537737" title="【OpenCV入门教程之三】 图像的载入，显示和输出 一站式完全解析">【OpenCV入门教程之三】 图像的载入，显示和输出 一站式完全解析</a><span>(158)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/44416709" title="【浅墨著作】《OpenCV3编程入门》内容简介&amp;勘误&amp;配套源代码下载">【浅墨著作】《OpenCV3编程入门》内容简介&amp;勘误&amp;配套源代码下载</a><span>(148)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/7364697" title="【Visual C++】游戏开发笔记之九  游戏地图制作（一）平面地图贴图">【Visual C++】游戏开发笔记之九  游戏地图制作（一）平面地图贴图</a><span>(147)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/7355377" title="【Visual C++】游戏开发笔记之八——基础动画显示（二）游戏循环的使用">【Visual C++】游戏开发笔记之八——基础动画显示（二）游戏循环的使用</a><span>(142)</span>
+</li>
+<li>
+<a href="/poem_qianmo/article/details/7376281" title="【Visual C++】游戏开发笔记之十 基础动画显示（三） 透明动画的实现">【Visual C++】游戏开发笔记之十 基础动画显示（三） 透明动画的实现</a><span>(130)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/laoyang360/article/details/53843771" target="_blank">* 而立之年——三线城市程序员的年终告白</a></li>
+<li><a href="http://blog.csdn.net/sdkfjksf/article/details/54380659" 
+target="_blank">* Java集合框架中隐藏的设计套路</a></li>
+<li><a href="http://blog.csdn.net/jiangwei0910410003/article/details/54092364" 
+target="_blank">* Python脚本下载今日头条视频(附加Android版本辅助下载器)</a></li>
+<li><a href="http://blog.csdn.net/caowenbin/article/details/54406716" target="_blank">* 人工智能的冷思考</a></li>
+<li><a href="http://blog.csdn.net/it_talk/article/details/54346566" 
+target="_blank">* React Native 实战系列教程之热更新原理分析与实现</a></li>
+
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/poem_qianmo/article/details/42611531#comments">【浅墨Unity3D Shader编程】之七 静谧之秋篇: 表面着色器的写法(二)—— 自定义光照模式</a>
+    <p style="margin:0px;"><a href="/wang253831" class="user_name">wang253831</a>:
+@SbLiangXianSheng:这都能喷  ？    脑子进水了吧你       技术就是相互分...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/poem_qianmo/article/details/20537737#comments">【OpenCV入门教程之三】 图像的载入，显示和输出 一站式完全解析</a>
+    <p style="margin:0px;"><a href="/qq_14999081" class="user_name">qq_14999081</a>:
+0x75EAA832 处(位于 OCtest1.exe 中)有未经处理的异常: Microsoft ...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/poem_qianmo/article/details/19809337#comments">【OpenCV入门教程之一】 安装OpenCV：OpenCV 3.0、OpenCV 2.4.8、OpenCV 2.4.9 +VS 开发环境配置</a>
+    <p style="margin:0px;"><a href="/stanley19840821" class="user_name">stanley19840821</a>:
+@stanley19840821:验证了一下， 这个问题解决的关键， 不在于将dll拷贝的Syste...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/poem_qianmo/article/details/19809337#comments">【OpenCV入门教程之一】 安装OpenCV：OpenCV 3.0、OpenCV 2.4.8、OpenCV 2.4.9 +VS 开发环境配置</a>
+    <p style="margin:0px;"><a href="/stanley19840821" class="user_name">stanley19840821</a>:
+关于0xc000007b的问题， 博文和书上说的， “无论32位还是64位操作系统，配置文件最好选择...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/poem_qianmo/article/details/19809337#comments">【OpenCV入门教程之一】 安装OpenCV：OpenCV 3.0、OpenCV 2.4.8、OpenCV 2.4.9 +VS 开发环境配置</a>
+    <p style="margin:0px;"><a href="/mayjoyi" class="user_name">mayjoyi</a>:
+@mayjoyi:我已经解决了 好像是下载了sp1解决的 费心了
+    </p>
+    </li>
+    <li>
+   
+         <a href="/poem_qianmo/article/details/51764028#comments">【Unity Shader编程】之十四 边缘发光Shader(Rim Shader)的两种实现形态</a>
+    <p style="margin:0px;"><a href="/lovefj13" class="user_name">lovefj13</a>:
+大神为什么不更新了。
+    </p>
+    </li>
+    <li>
+   
+         <a href="/poem_qianmo/article/details/7397305#comments">【规划】近期的规划</a>
+    <p style="margin:0px;"><a href="/cyq1028" class="user_name">cyq1028</a>:
+妹子追到了吗？@zhmxy555:
+    </p>
+    </li>
+    <li>
+   
+         <a href="/poem_qianmo/article/details/7397305#comments">【OpenCV入门教程之一】 安装OpenCV：OpenCV 3.0、OpenCV 2.4.8、OpenCV 2.4.9 +VS 开发环境配置</a>
+    <p style="margin:0px;"><a href="/mayjoyi" class="user_name">mayjoyi</a>:
+请教一下1. 运行后“当前上下文中的测试”是灰的怎么处理？2.启用调试后显示项目过期 后来直接说无法...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/poem_qianmo/article/details/20911629#comments">【OpenCV入门教程之四】 ROI区域图像叠加&amp;初级图像混合 全剖析</a>
+    <p style="margin:0px;"><a href="/PORTB" class="user_name">PORTB</a>:
+@kaikangkk:因为把mask的灰度图叠加到某一通道上了，再把通道合并，当然是彩色了
+    </p>
+    </li>
+    <li>
+   
+         <a href="/poem_qianmo/article/details/20911629#comments">【OpenCV入门教程之四】 ROI区域图像叠加&amp;初级图像混合 全剖析</a>
+    <p style="margin:0px;"><a href="/kaikangkk" class="user_name">kaikangkk</a>:
+你好，我想请问一下，我把mask转换成灰度图，为什么两张图结合起来之后还是彩色图呢？
+    </p>
+    </li>
+</ul>
+</div>
+
+
+<div id="custom_column_30665473" class="panel">
+<ul class="panel_head"><span>【浅墨的驻点】</span></ul>
+<ul class="panel_body">
+<p><a style="color:#033" target="_blank" href="https://github.com/QianMo"><strong>&lt;1&gt; 浅墨的GitHub主页</strong></a>  </p>
+<p><a style="color:#F30" target="_blank" href="http://weibo.com/u/1723155442"><strong>&lt;2&gt; 浅墨的微博主页</strong></a>  </p>
+<p><strong><a style="color:#090; target=" _blank"="" "="" href="http://www.douban.com/people/53426472/">&lt;3&gt; 浅墨的豆瓣主页</a> </strong></p>
+<p><strong><a style="color:#03F;" target="_blank" href="http://www.zhihu.com/people/mao-xing-yun">&lt;4&gt; 浅墨的知乎主页</a></strong></p>
+<p><strong><a style="color:#A93" target="_blank" href="http://www.codecogs.com/latex/eqneditor.php/">&lt;5&gt;在线LaTex公式编辑器</a></strong></p>
+</ul>
+</div>    </div>
+    <div class="clear">
+    </div>
+
+
+                   <!-- 广告位开始 --> 
+                    <ins data-revive-zoneid="190" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins> 
+                    <!-- 广告位结束 -->
+
+           </div>   
+
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/cnick/cnick.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js"></script>
+
+
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=1249919"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/JavaScript1.js"></script>
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+
+    </div>
+      <!--new top-->
+    
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://c.csdnimg.cn/public/common/toolbar/js/toolbar.js"></script>     <!--new top-->
+   
+    <link href="http://c.csdnimg.cn/comm_ask/css/ask_float_block.css" type="text/css" rel="stylesheet" />
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/wmd.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/showdown.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/prettify.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/apps/ask_float_block.js'></script>
+   
+
+   
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_code.css" />
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/saveToCode.js"></script>
+      <script type="text/javascript" src="//csdnimg.cn/rabbit/tracking-ad/main.js?75eacd8"></script>
+
+     <link rel="stylesheet" href="http://static.blog.csdn.net/css/fa.css" />
+
+    <div class="pop_CA_cover"  style="display:none"></div>
+    <div class="pop pop_CA"  style="display:none">
+          <div class="CA_header">
+            收藏助手
+            <span class="cancel_icon"  id="fapancle"  onclick="$('.pop_CA').hide();$('.pop_CA_cover').hide();"></span>
+          </div>
+          <iframe src="" id="fa" frameborder="0" width="100%" height="360"  scrolling="no" />
+    </div>
+</body>
+</html>   
+ 
