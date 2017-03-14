@@ -19,13 +19,15 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Deactivate", "Deactivate\De
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QianMo_2", "QianMo_2\QianMo_2.vcxproj", "{2C826492-7CBB-4D3F-8705-FFCD42AAD852}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QianMo_3", "Qianmo_3\Qianmo_3.vcxproj", "{B40E2945-5757-4004-B947-FADD57404AB3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Qianmo_3", "Qianmo_3\Qianmo_3.vcxproj", "{B40E2945-5757-4004-B947-FADD57404AB3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QianMo_5", "QianMo_5\QianMo_5.vcxproj", "{EBE45891-8EF0-4F57-B930-EAC1B61B21FC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QianMo_6", "QianMo_6\QianMo_6.vcxproj", "{784C6A4C-AEF7-40EF-B520-AAB3F9BD66CE}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QianMo_7", "QianMo_7\QianMo_7.vcxproj", "{9E31AAAE-7413-4064-88FC-D6C2F1E36A93}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "QianMo_8", "QianMo_8\QianMo_8.vcxproj", "{36F95EDE-DB84-4C3E-B17C-F0098B0E5AC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,10 @@ Global
 		{9E31AAAE-7413-4064-88FC-D6C2F1E36A93}.Debug|Win32.Build.0 = Debug|Win32
 		{9E31AAAE-7413-4064-88FC-D6C2F1E36A93}.Release|Win32.ActiveCfg = Release|Win32
 		{9E31AAAE-7413-4064-88FC-D6C2F1E36A93}.Release|Win32.Build.0 = Release|Win32
+		{36F95EDE-DB84-4C3E-B17C-F0098B0E5AC0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{36F95EDE-DB84-4C3E-B17C-F0098B0E5AC0}.Debug|Win32.Build.0 = Debug|Win32
+		{36F95EDE-DB84-4C3E-B17C-F0098B0E5AC0}.Release|Win32.ActiveCfg = Release|Win32
+		{36F95EDE-DB84-4C3E-B17C-F0098B0E5AC0}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
