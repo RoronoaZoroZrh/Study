@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpLearningClean", "CSharpLearningClean\CSharpLearningClean.csproj", "{A46FCD24-D247-41A2-88F3-536A87397C53}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Welcome_20151116_1", "Welcome_20151116_1\Welcome_20151116_1.csproj", "{4AC9D33F-5B37-4878-A2AE-3FCBA8BB5D1D}"
@@ -14,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integer_20160218_1", "Integer_20160218_1\Integer_20160218_1.csproj", "{B54CAB4B-118E-4467-B5E0-41CC63FEF075}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plan", "Plan\Plan.csproj", "{CA099AA8-064E-43F5-A934-617B72EE1CF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubSort_20170316_1", "BubSort_20170316_1\BubSort_20170316_1.csproj", "{E8CAF2ED-4D2F-4061-9320-7E6DF31711B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,10 @@ Global
 		{CA099AA8-064E-43F5-A934-617B72EE1CF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA099AA8-064E-43F5-A934-617B72EE1CF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA099AA8-064E-43F5-A934-617B72EE1CF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8CAF2ED-4D2F-4061-9320-7E6DF31711B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8CAF2ED-4D2F-4061-9320-7E6DF31711B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8CAF2ED-4D2F-4061-9320-7E6DF31711B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8CAF2ED-4D2F-4061-9320-7E6DF31711B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
