@@ -75,6 +75,7 @@
             this.ButtonAutoBreak.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ButtonAutoBreak.TabIndex = 3;
             this.ButtonAutoBreak.Text = "自动突破";
+            this.ButtonAutoBreak.Click += new System.EventHandler(this.ButtonAutoBreak_Click);
             // 
             // ButtonAutoSearch
             // 

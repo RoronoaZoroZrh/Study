@@ -32,6 +32,16 @@ namespace YinYangShi
             SetCursorPos(nX, nY);
         }
 
+        //!鼠标点击
+        public static void MouseClick(int nX, int nY, float fTime)
+        {
+            //!设置鼠标位置
+            SetCurPos(nX, nY);
+
+            //!鼠标点击
+            MouseClick(fTime);
+        }
+
         //!毫秒与秒换算单位
         private const int m_nUint = 1000;
 
