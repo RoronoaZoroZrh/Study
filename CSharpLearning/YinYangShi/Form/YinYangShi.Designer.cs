@@ -32,7 +32,7 @@
             this.RichTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.ButtonAutoBreak = new DevComponents.DotNetBar.ButtonX();
             this.ButtonAutoSearch = new DevComponents.DotNetBar.ButtonX();
-            this.ButtonTest = new System.Windows.Forms.Button();
+            this.ButtonAwake = new DevComponents.DotNetBar.ButtonX();
             this.PanelYinYangShi.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,10 +40,10 @@
             // 
             this.PanelYinYangShi.CanvasColor = System.Drawing.SystemColors.Control;
             this.PanelYinYangShi.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.PanelYinYangShi.Controls.Add(this.ButtonAwake);
             this.PanelYinYangShi.Controls.Add(this.RichTextBoxLog);
             this.PanelYinYangShi.Controls.Add(this.ButtonAutoBreak);
             this.PanelYinYangShi.Controls.Add(this.ButtonAutoSearch);
-            this.PanelYinYangShi.Controls.Add(this.ButtonTest);
             this.PanelYinYangShi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelYinYangShi.Location = new System.Drawing.Point(0, 0);
             this.PanelYinYangShi.Name = "PanelYinYangShi";
@@ -89,15 +89,17 @@
             this.ButtonAutoSearch.Text = "自动探索";
             this.ButtonAutoSearch.Click += new System.EventHandler(this.ButtonAutoSearch_Click);
             // 
-            // ButtonTest
+            // ButtonAwake
             // 
-            this.ButtonTest.Location = new System.Drawing.Point(3, 506);
-            this.ButtonTest.Name = "ButtonTest";
-            this.ButtonTest.Size = new System.Drawing.Size(207, 94);
-            this.ButtonTest.TabIndex = 0;
-            this.ButtonTest.Text = "测试按钮";
-            this.ButtonTest.UseVisualStyleBackColor = true;
-            this.ButtonTest.Click += new System.EventHandler(this.button1_Click);
+            this.ButtonAwake.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.ButtonAwake.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.ButtonAwake.Location = new System.Drawing.Point(12, 84);
+            this.ButtonAwake.Name = "ButtonAwake";
+            this.ButtonAwake.Size = new System.Drawing.Size(132, 53);
+            this.ButtonAwake.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ButtonAwake.TabIndex = 5;
+            this.ButtonAwake.Text = "自动觉醒";
+            this.ButtonAwake.Click += new System.EventHandler(this.ButtonAwake_Click);
             // 
             // FormYinYangShi
             // 
@@ -106,6 +108,7 @@
             this.ClientSize = new System.Drawing.Size(1093, 603);
             this.Controls.Add(this.PanelYinYangShi);
             this.Name = "FormYinYangShi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "阴阳师帮助脚本";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PanelYinYangShi.ResumeLayout(false);
@@ -116,10 +119,10 @@
         #endregion
 
         private DevComponents.DotNetBar.PanelEx PanelYinYangShi;
-        private System.Windows.Forms.Button ButtonTest;
         private DevComponents.DotNetBar.ButtonX ButtonAutoSearch;
         private DevComponents.DotNetBar.ButtonX ButtonAutoBreak;
         private System.Windows.Forms.RichTextBox RichTextBoxLog;
+        private DevComponents.DotNetBar.ButtonX ButtonAwake;
     }
 }
 
