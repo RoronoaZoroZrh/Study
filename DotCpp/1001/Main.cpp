@@ -2,8 +2,8 @@
 @file     Main.cpp
 @date     2017-4-26
 @author   Zoro_Tiger
-@brief    简单的a+b
-          http://www.dotcpp.com/oj/problem1000.html
+@brief    问题 1001: C语言程序设计教程（第三版）课后习题1.5
+          http://www.dotcpp.com/oj/problem1001.html
 ********************************************************************/
 //!头文件
 #include <cstdio>
@@ -16,17 +16,12 @@
 int main(int argc, const char* argv[])
 {
 
-#ifdef TEST //!从文件读取输入
-	freopen("in.txt", "r", stdin);
+#ifdef TEST
 	freopen("out.txt", "w", stdout);
 #endif
 
-	//!计算两个数之和
-	int number_a = 0, number_b = 0;
-	while (scanf("%d%d", &number_a, &number_b) != EOF)
-	{
-		printf("%d\n", number_a + number_b);
-	}
+	//!输出到屏幕
+	printf("**************************\nHello World!\n**************************");
 
 	return 0;
 }

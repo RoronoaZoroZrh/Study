@@ -1,0 +1,13 @@
+2017-4-26
+$.   C语言入门教程
+1.   C语言的过去与未来
+1.1. C语言的历史 http://www.dotcpp.com/oj/classc101.html
+1.2. C语言的现在 http://www.dotcpp.com/oj/classc102.html
+1.3. C语言的未来 http://www.dotcpp.com/oj/classc103.html
+2.   C语言快速入门 
+2.1. C语言第一个简单例子 http://www.dotcpp.com/oj/classc201.html
+2.2. 实例说明 http://www.dotcpp.com/oj/classc202.html
+2.3. 本教程的相关说明 http://www.dotcpp.com/oj/classc203.html
+2.4. 本章总结与作业 http://www.dotcpp.com/oj/classc204.html
+
+$.   一个C语言程序的基本机构 http://www.dotcpp.com/wp/184.html
