@@ -2,7 +2,7 @@
 @file     Main.cpp
 @date     2017-4-26
 @author   Zoro_Tiger
-@brief    简单的a+b
+@brief    问题 1000: 简单的a+b
           http://www.dotcpp.com/oj/problem1000.html
 ********************************************************************/
 //!头文件
