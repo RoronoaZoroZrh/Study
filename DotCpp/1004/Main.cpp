@@ -11,9 +11,10 @@
 //!宏定义
 #define TEST
 #undef  TEST
+#define YEAR 55
 
-//!函数声明
-int GetCowNum(int year);
+//!全局变量
+int Cow[YEAR];
 
 //!程序入口
 int main(int argc, const char* argv[])
@@ -24,27 +25,18 @@ int main(int argc, const char* argv[])
 	freopen("out.txt", "w", stdout);
 #endif
 
+	//!初始化
+	for (int i = 0; i < YEAR; ++i)
+	{
+		if (i < 4) Cow[i] = i;
+		else Cow[i] = Cow[i - 1] + Cow[i - 3];
+	}
+
 	int year = 0;
 	while (scanf("%d", &year) && year)
 	{
-		printf("%d\n", GetCowNum(year));
+		printf("%d\n", Cow[year]);
 	}
 
 	return 0;
-}
-
-//!获取母牛数量
-int GetCowNum(int year)
-{
-	switch (year)
-	{
-	case 1:
-		return 1;
-	case 2:
-		return 2;
-	case 3:
-		return 3;
-	default:
-		return GetCowNum(year - 1) + GetCowNum(year - 3);
-	}
 }
