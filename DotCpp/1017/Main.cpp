@@ -2,8 +2,8 @@
 @file     Main.cpp
 @date     2017-5-11
 @author   Zoro_Tiger
-@brief    问题 1009: C语言程序设计教程（第三版）课后习题5.7
-          http://www.dotcpp.com/oj/problem1009.html
+@brief    问题 1017: C语言程序设计教程（第三版）课后习题6.7
+          http://www.dotcpp.com/oj/problem1017.html
 ********************************************************************/
 #include <cstdio>
 #include <cmath>
