@@ -1,6 +1,6 @@
 /********************************************************************
 @file     Main.cpp
-@date     2017-5-8
+@date     2017-5-11
 @author   Zoro_Tiger
 @brief    问题 1016: C语言程序设计教程（第三版）课后习题6.6
           http://www.dotcpp.com/oj/problem1016.html
