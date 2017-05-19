@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpLearningClean", "CSharpLearningClean\CSharpLearningClean.csproj", "{A46FCD24-D247-41A2-88F3-536A87397C53}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Welcome_20151116_1", "Welcome_20151116_1\Welcome_20151116_1.csproj", "{4AC9D33F-5B37-4878-A2AE-3FCBA8BB5D1D}"
@@ -18,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubSort_20170316_1", "BubSort_20170316_1\BubSort_20170316_1.csproj", "{E8CAF2ED-4D2F-4061-9320-7E6DF31711B2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YinYangShi", "YinYangShi\YinYangShi.csproj", "{C2EE42BC-1B9F-42AF-8955-AC11528E30F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToLookup_Learning_20170519", "ToLookup_Learning_20170519\ToLookup_Learning_20170519.csproj", "{DCD13ED4-44D7-48E0-96CC-EB666CF41B32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -119,6 +123,16 @@ Global
 		{C2EE42BC-1B9F-42AF-8955-AC11528E30F5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C2EE42BC-1B9F-42AF-8955-AC11528E30F5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C2EE42BC-1B9F-42AF-8955-AC11528E30F5}.Release|Win32.ActiveCfg = Release|Any CPU
+		{DCD13ED4-44D7-48E0-96CC-EB666CF41B32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCD13ED4-44D7-48E0-96CC-EB666CF41B32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCD13ED4-44D7-48E0-96CC-EB666CF41B32}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DCD13ED4-44D7-48E0-96CC-EB666CF41B32}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DCD13ED4-44D7-48E0-96CC-EB666CF41B32}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{DCD13ED4-44D7-48E0-96CC-EB666CF41B32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCD13ED4-44D7-48E0-96CC-EB666CF41B32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCD13ED4-44D7-48E0-96CC-EB666CF41B32}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DCD13ED4-44D7-48E0-96CC-EB666CF41B32}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DCD13ED4-44D7-48E0-96CC-EB666CF41B32}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
