@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Helper\DNFScriptLog.cs" />
     <Compile Include="Core\Win32API\Win32API.cs" />
     <Compile Include="Form\MainForm.cs">
       <SubType>Form</SubType>

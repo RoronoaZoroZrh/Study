@@ -30,12 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainFormPanel = new DevComponents.DotNetBar.PanelEx();
+            this.AutoButton = new DevComponents.DotNetBar.ButtonX();
+            this.MainFormPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainFormPanel
             // 
             this.MainFormPanel.CanvasColor = System.Drawing.SystemColors.Control;
             this.MainFormPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.MainFormPanel.Controls.Add(this.AutoButton);
             this.MainFormPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainFormPanel.Location = new System.Drawing.Point(0, 0);
             this.MainFormPanel.Name = "MainFormPanel";
@@ -49,6 +52,18 @@
             this.MainFormPanel.Style.GradientAngle = 90;
             this.MainFormPanel.TabIndex = 0;
             // 
+            // AutoButton
+            // 
+            this.AutoButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.AutoButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.AutoButton.Location = new System.Drawing.Point(680, 475);
+            this.AutoButton.Name = "AutoButton";
+            this.AutoButton.Size = new System.Drawing.Size(149, 61);
+            this.AutoButton.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.AutoButton.TabIndex = 0;
+            this.AutoButton.Text = "自动执行";
+            this.AutoButton.Click += new System.EventHandler(this.AutoButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -59,7 +74,9 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DNF脚本";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.MainFormPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -67,6 +84,7 @@
         #endregion
 
         private DevComponents.DotNetBar.PanelEx MainFormPanel;
+        private DevComponents.DotNetBar.ButtonX AutoButton;
     }
 }
 

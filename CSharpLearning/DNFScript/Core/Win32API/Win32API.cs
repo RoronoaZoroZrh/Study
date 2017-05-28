@@ -6,6 +6,7 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace DNFScript
 {
@@ -24,8 +25,18 @@ namespace DNFScript
             MoveWindow(vDNFPtr, 0, 0, 800, 600, false);
         }
 
+        //!向左移动
+        public static void GoLeft()
+        {
+            keybd_event(0x25, 0, 0, 0);
+            Thread.Sleep(100);
+            keybd_event(0x25, 0, 2, 0);
+        }
+
         //!Win32 API
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        [DllImport("USER32.DLL", CharSet = CharSet.Auto)]
         public static extern int MoveWindow(IntPtr hWnd, int x, int y, int nWidth, int nHeight, bool BRePaint);
+        [DllImport("USER32.DLL", CharSet = CharSet.Auto)]
+        public static extern void keybd_event(Byte bVk, Byte bScan, int dwFlags, int dwExtraInfo);  
     }
 }
