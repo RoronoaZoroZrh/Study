@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpLearningClean", "CSharpLearningClean\CSharpLearningClean.csproj", "{A46FCD24-D247-41A2-88F3-536A87397C53}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Welcome_20151116_1", "Welcome_20151116_1\Welcome_20151116_1.csproj", "{4AC9D33F-5B37-4878-A2AE-3FCBA8BB5D1D}"
@@ -22,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToLookup_Learning_20170519", "ToLookup_Learning_20170519\ToLookup_Learning_20170519.csproj", "{DCD13ED4-44D7-48E0-96CC-EB666CF41B32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNFScript", "DNFScript\DNFScript.csproj", "{D117C8F9-5C15-46D3-9206-25D5AA07A0AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xml_Operation_20170616", "Xml_Operation_20170616\Xml_Operation_20170616.csproj", "{8ADBA422-05B8-47F4-9E6B-A143E480FA83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -143,6 +147,16 @@ Global
 		{D117C8F9-5C15-46D3-9206-25D5AA07A0AD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D117C8F9-5C15-46D3-9206-25D5AA07A0AD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D117C8F9-5C15-46D3-9206-25D5AA07A0AD}.Release|Win32.ActiveCfg = Release|Any CPU
+		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
