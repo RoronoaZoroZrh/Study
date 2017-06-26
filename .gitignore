@@ -65,3 +65,9 @@ DotCpp/1054/Debug/1054.vcxprojResolveAssemblyReference.cache
 *.opensdf
 DotCpp/DotCpp.sdf
 *.suo
+*.ilk
+*.manifest
+*.log
+*.cache
+*.rc
+*.idb
