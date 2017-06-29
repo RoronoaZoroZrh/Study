@@ -32,7 +32,10 @@ ResourcesManager* ResourcesManager::GetResourcesManager(void)
 
 void ResourcesManager::ReleaseResourcesManager(void)
 {
-	delete m_instance; m_instance = NULL;
+	if (NULL != m_instance)
+	{
+		delete m_instance; m_instance = NULL;
+	}
 }
 
 void ResourcesManager::_InitResources(void)
@@ -61,4 +64,9 @@ void ResourcesManager::_DeleResources(void)
 	{
 		DeleteObject(this->m_girl[i]);
 	}
+}
+
+HBITMAP& ResourcesManager::GetBackground(void)
+{
+	return this->m_background;
 }

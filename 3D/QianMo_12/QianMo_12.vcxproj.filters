@@ -21,12 +21,18 @@
     <ClCompile Include="ResourcesManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RenderForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ResourcesManager.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="DataDefine.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderForm.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>

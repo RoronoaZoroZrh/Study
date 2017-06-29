@@ -16,9 +16,6 @@ class ResourcesManager
 	
 public:
 
-	//!构造函数
-	ResourcesManager(void);
-
 	//!析构函数
 	virtual ~ResourcesManager(void);
 
@@ -30,6 +27,9 @@ public:
 
 private:
 
+	//!构造函数
+	ResourcesManager(void);
+
 	//!初始化资源
 	void _InitResources(void);
 
@@ -39,9 +39,14 @@ private:
 	//!清理资源
 	void _DeleResources(void);
 
+public:
+
+	//!获取背景图
+	HBITMAP& GetBackground(void);
+
 private:
 
-	//!资源管理
+	//!资源管理实例
 	static ResourcesManager* m_instance;
 
 	//!背景图

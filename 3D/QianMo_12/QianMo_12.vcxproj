@@ -75,10 +75,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="RenderForm.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataDefine.h" />
+    <ClInclude Include="RenderForm.h" />
     <ClInclude Include="ResourcesManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
