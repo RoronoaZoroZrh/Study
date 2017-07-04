@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNFScript", "DNFScript\DNFS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xml_Operation_20170616", "Xml_Operation_20170616\Xml_Operation_20170616.csproj", "{8ADBA422-05B8-47F4-9E6B-A143E480FA83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FolderIterator_20170704_1", "FolderIterator_20170704_1\FolderIterator_20170704_1.csproj", "{DE16D154-639E-438A-A887-BA8E5EF142E9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +159,16 @@ Global
 		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8ADBA422-05B8-47F4-9E6B-A143E480FA83}.Release|Win32.ActiveCfg = Release|Any CPU
+		{DE16D154-639E-438A-A887-BA8E5EF142E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE16D154-639E-438A-A887-BA8E5EF142E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE16D154-639E-438A-A887-BA8E5EF142E9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DE16D154-639E-438A-A887-BA8E5EF142E9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DE16D154-639E-438A-A887-BA8E5EF142E9}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{DE16D154-639E-438A-A887-BA8E5EF142E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE16D154-639E-438A-A887-BA8E5EF142E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE16D154-639E-438A-A887-BA8E5EF142E9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DE16D154-639E-438A-A887-BA8E5EF142E9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DE16D154-639E-438A-A887-BA8E5EF142E9}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
