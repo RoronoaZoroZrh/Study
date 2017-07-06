@@ -15,25 +15,81 @@
 #include <functional>
 #include <queue>
 
-//!函数声明
-void GetInput(void);
-
 //!宏定义
 #define RECT_SIZE  15
 
+//!结果
+struct Result
+{
+	Result(void)
+	{
+		Clear();
+	}
+
+	void Clear(void)
+	{
+		length = 0;
+		memset(route, '\0', sizeof(route));
+	}
+
+	bool operator<(const Result& rhs) const
+	{
+		if (length != rhs.length)
+		{
+			return length < rhs.length;
+		}
+		else
+		{
+			for (int i = 0; i < length; ++i)
+			{
+				if (route[i] != rhs.route[i])
+				{
+					return route[i] < rhs.route[i];
+				}
+			}
+		}
+	}
+
+	bool operator>(const Result& rhs) const
+	{
+		return !operator<(rhs);
+	}
+
+	void Print(void)
+	{
+		for (int i = 0; i < length; ++i)
+		{
+			printf("%c", route[i]);
+		}
+		printf("\n");
+	}
+
+	int  length;
+	char route[RECT_SIZE*RECT_SIZE];
+};
+
+//!函数声明
+void GetInput(void);
+void HandleInput(void);
+bool CanDFS(int x, int y);
+void DFS(int x, int y);
+void BFS(int x, int y);
+
 //!全局变量
-char input[RECT_SIZE][RECT_SIZE];       //!输入
-bool maze_state[RECT_SIZE][RECT_SIZE];  //!迷宫状态
-int  number_r, number_c;                //!行列
-int  total_int_cnt;                     //!数字数量
-char max_result[RECT_SIZE*RECT_SIZE];   //!结果
+char   input[RECT_SIZE][RECT_SIZE];       //!输入
+bool   maze_state[RECT_SIZE][RECT_SIZE];  //!迷宫状态
+int    number_r, number_c;                //!行列
+int    total_int_cnt;                     //!数字数量
+Result max_result, temp_result;           //!结果
 
 //!程序入口
 int main(int argc, const char* argv[])
 {
 	while (scanf("%d%d", &number_r, &number_c) != EOF && (number_r + number_c)) //!number_r和number_c同时为零退出
 	{
-		GetInput(); //!获取输入
+		GetInput();         //!获取输入
+		HandleInput();      //!处理输入
+		max_result.Print(); //!显示结果
 	}
 
 	//!返回系统
@@ -46,7 +102,7 @@ void GetInput(void)
 	//!初始化
 	memset(input, 0, sizeof(input));
 	memset(maze_state, 0, sizeof(maze_state));
-	memset(max_result, 0, sizeof(max_result));
+	max_result.Clear(); temp_result.Clear();
 	total_int_cnt = 0;
 
 	//!获取输入
@@ -75,7 +131,17 @@ void HandleInput(void)
 	{
 		for (int j = 0; j < number_c; ++j)
 		{
-			
+			if (CanDFS(i, j))
+			{
+				//!剪枝--如果最大值的长度已经为数字总数，那么如果第一位小于最大值第一位则不进行搜索
+				if (total_int_cnt != 0 && max_result.length == total_int_cnt && input[i][j] < max_result.route[0])
+				{
+					continue;
+				}
+
+				//!进行搜索
+				DFS(i, j);
+			}
 		}
 	}
 }
@@ -91,14 +157,30 @@ bool CanDFS(int x, int y)
 	{
 		return false;
 	}
-	else if (strlen(max_result) == total_int_cnt && input[x][y])
+	else
 	{
-
+		return true;
 	}
 }
 
 //!DFS
 void DFS(int x, int y)
 {
-	
+	if (CanDFS(x, y))
+	{
+		maze_state[x][y] = true; temp_result.route[temp_result.length++] = input[x][y];
+		DFS(x + 1, y);
+		DFS(x - 1, y);
+		DFS(x, y + 1);
+		DFS(x, y - 1);
+		if (max_result < temp_result) max_result = temp_result;
+		maze_state[x][y] = false; --temp_result.length;
+	}
+}
+
+//!BFS
+void BFS(int x, int y)
+{
+	std::queue<int> my_queue;
+	my_queue.push(x * RECT_SIZE + y);
 }
