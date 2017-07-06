@@ -73,11 +73,13 @@ void GetInput(void);
 void HandleInput(void);
 bool CanDFS(int x, int y);
 void DFS(int x, int y);
-void BFS(int x, int y);
+int  BFS(int x, int y);
+bool CanBFS(int x, int y);
 
 //!全局变量
 char   input[RECT_SIZE][RECT_SIZE];       //!输入
 bool   maze_state[RECT_SIZE][RECT_SIZE];  //!迷宫状态
+bool   t_maze_state[RECT_SIZE][RECT_SIZE];//!迷宫临时状态
 int    number_r, number_c;                //!行列
 int    total_int_cnt;                     //!数字数量
 Result max_result, temp_result;           //!结果
@@ -168,10 +170,30 @@ void DFS(int x, int y)
 {
 	if (CanDFS(x, y))
 	{
+		int length = BFS(x, y);
+		if (length + temp_result.length < max_result.length)
+		{
+			return;
+		}
+		else if (length + temp_result.length == max_result.length)
+		{
+			for (int i = 0; i < temp_result.length; ++i)
+			{
+				if (temp_result.route[i] < max_result.route[i])
+				{
+					return;
+				}
+			}
+		}
+
 		maze_state[x][y] = true; temp_result.route[temp_result.length++] = input[x][y];
+
+		printf("%d%d\n", x, y);
+		temp_result.Print();
+
 		DFS(x + 1, y);
-		DFS(x - 1, y);
 		DFS(x, y + 1);
+		DFS(x - 1, y);
 		DFS(x, y - 1);
 		if (max_result < temp_result) max_result = temp_result;
 		maze_state[x][y] = false; --temp_result.length;
@@ -179,8 +201,53 @@ void DFS(int x, int y)
 }
 
 //!BFS
-void BFS(int x, int y)
+int BFS(int x, int y)
 {
 	std::queue<int> my_queue;
 	my_queue.push(x * RECT_SIZE + y);
+
+	int length = 0;
+	memset(t_maze_state, 0, sizeof(t_maze_state));
+	while (!my_queue.empty())
+	{
+		int tmp = my_queue.front(); my_queue.pop();
+		int new_x = tmp / RECT_SIZE, new_y = tmp % RECT_SIZE;
+		if (CanBFS(new_x, new_y))
+		{
+			t_maze_state[new_x][new_y] = true;
+			++length;
+
+			if (CanBFS(new_x + 1, new_y))
+			{
+				my_queue.push((new_x + 1) * RECT_SIZE + new_y);
+			}
+
+			if (CanBFS(new_x - 1, new_y))
+			{
+				my_queue.push((new_x - 1) * RECT_SIZE + new_y);
+			}
+
+			if (CanBFS(new_x, new_y + 1))
+			{
+				my_queue.push(new_x * RECT_SIZE + (new_y + 1));
+			}
+
+			if (CanBFS(new_x, new_y - 1))
+			{
+				my_queue.push(new_x * RECT_SIZE + (new_y - 1));
+			}
+		}
+	}
+
+	return length;
+}
+
+//!是否能进行BFS
+bool CanBFS(int x, int y)
+{
+	if (CanDFS(x, y) && !t_maze_state[x][y])
+	{
+		return true;
+	}
+	return false;
 }
