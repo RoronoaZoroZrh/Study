@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radian_Practice_20170711_1"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xml_Operation_20170717_1", "Xml_Operation_20170717_1\Xml_Operation_20170717_1.csproj", "{148FA99D-F998-4E43-9CB0-12D3C4A3A243}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Float_Convert_String_20170720_1", "Float_Convert_String_20170720_1\Float_Convert_String_20170720_1.csproj", "{06727301-B637-43BB-A086-9D025E6B86EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -217,6 +219,16 @@ Global
 		{148FA99D-F998-4E43-9CB0-12D3C4A3A243}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{148FA99D-F998-4E43-9CB0-12D3C4A3A243}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{148FA99D-F998-4E43-9CB0-12D3C4A3A243}.Release|Win32.ActiveCfg = Release|Any CPU
+		{06727301-B637-43BB-A086-9D025E6B86EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06727301-B637-43BB-A086-9D025E6B86EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06727301-B637-43BB-A086-9D025E6B86EB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{06727301-B637-43BB-A086-9D025E6B86EB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{06727301-B637-43BB-A086-9D025E6B86EB}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{06727301-B637-43BB-A086-9D025E6B86EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06727301-B637-43BB-A086-9D025E6B86EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06727301-B637-43BB-A086-9D025E6B86EB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{06727301-B637-43BB-A086-9D025E6B86EB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{06727301-B637-43BB-A086-9D025E6B86EB}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
