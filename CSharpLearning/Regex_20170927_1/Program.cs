@@ -48,17 +48,17 @@ namespace Regex_20170927_1
                     }
 
 
-//                     using (StreamReader sr = new StreamReader(tempFileArray.ElementAt(i).FullName))
-//                     {
-//                         StringBuilder sTemp = new StringBuilder(sr.ReadToEnd());
-//                         if (regex1.Match(sTemp.ToString()).Success ||
-//                             regex2.Match(sTemp.ToString()).Success)
-//                         {
-//                             Console.WriteLine(tempFileArray.ElementAt(i).FullName);
-//                             sw.WriteLine(tempFileArray.ElementAt(i).FullName);
-//                             sw.Flush();
-//                         }
-//                     }
+                    //                     using (StreamReader sr = new StreamReader(tempFileArray.ElementAt(i).FullName))
+                    //                     {
+                    //                         StringBuilder sTemp = new StringBuilder(sr.ReadToEnd());
+                    //                         if (regex1.Match(sTemp.ToString()).Success ||
+                    //                             regex2.Match(sTemp.ToString()).Success)
+                    //                         {
+                    //                             Console.WriteLine(tempFileArray.ElementAt(i).FullName);
+                    //                             sw.WriteLine(tempFileArray.ElementAt(i).FullName);
+                    //                             sw.Flush();
+                    //                         }
+                    //                     }
                 }
 
                 if (tempFileArray.Count() > 0)
@@ -75,7 +75,7 @@ namespace Regex_20170927_1
                 }
 
                 DirectoryInfo[] tempDirArray = tempDirInfo.GetDirectories();
-                for(int i = 0; i < tempDirArray.Count(); ++i)
+                for (int i = 0; i < tempDirArray.Count(); ++i)
                 {
                     dirQueue.Enqueue(tempDirArray.ElementAt(i));
                 }
