@@ -39,11 +39,13 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SoftRender";
             this.Text = "软渲染器";
+            this.Load += new System.EventHandler(this.SoftRender_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
     }
 }
 
