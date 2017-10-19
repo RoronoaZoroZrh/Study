@@ -37,7 +37,7 @@ namespace SoftRender
         //!构造软渲染器
         private void CreateRender()
         {
-            m_vRender = new Render(CreateGraphics());
+            m_vRender = new Render(CreateGraphics(), MaximumSize.Width, MaximumSize.Height);
         }
 
         //!定时器
