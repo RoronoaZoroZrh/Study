@@ -17,7 +17,18 @@ namespace Comment_20171101_1
          */
         static void Main(string[] args)
         {
+            Console.WriteLine(Add(1, 2));
+        }
 
+        /// <summary>
+        /// 计算两个数之和
+        /// </summary>
+        /// <param name="nNumA">数字A</param>
+        /// <param name="nNumB">数字B</param>
+        /// <returns>数字A与数字B之和</returns>
+        static int Add(int nNumA, int nNumB)
+        {
+            return nNumA + nNumB;
         }
     }
 }
