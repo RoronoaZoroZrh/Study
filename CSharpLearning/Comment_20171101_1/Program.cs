@@ -26,6 +26,14 @@ namespace Comment_20171101_1
         /// <param name="nNumA">数字A</param>
         /// <param name="nNumB">数字B</param>
         /// <returns>数字A与数字B之和</returns>
+        /// <c>int c = a + b</c>
+        /// <code>
+        /// int a;
+        /// int b;
+        /// int c = a + b;
+        /// </code>
+        /// <example>int c = 1 + 2</example>
+        /// <test>hhhh</test>
         static int Add(int nNumA, int nNumB)
         {
             return nNumA + nNumB;
