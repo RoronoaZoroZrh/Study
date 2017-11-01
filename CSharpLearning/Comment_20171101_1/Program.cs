@@ -31,4 +31,20 @@ namespace Comment_20171101_1
             return nNumA + nNumB;
         }
     }
+
+    /// <summary>
+    /// class TestClass
+    /// </summary>
+    public class TestClass
+    {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="fNumA">数字A</param>
+        /// <param name="fNumB">数字B</param>
+        public TestClass(float fNumA, float fNumB)
+        {
+
+        }
+    }
 }
