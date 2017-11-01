@@ -34,6 +34,7 @@ namespace Comment_20171101_1
         /// </code>
         /// <example>int c = 1 + 2</example>
         /// <test>hhhh</test>
+        /// <see cref="int"/>
         static int Add(int nNumA, int nNumB)
         {
             return nNumA + nNumB;
