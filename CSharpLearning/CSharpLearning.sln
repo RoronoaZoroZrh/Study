@@ -97,7 +97,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Regex_20180123_1", "Regex_2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetDrives_20180301_1", "GetDrives_20180301_1\GetDrives_20180301_1.csproj", "{3A1A81DD-DFE0-462A-A648-2CF6A0093C56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpWebResponse.LastModified", "HttpWebResponse.LastModified\HttpWebResponse.LastModified.csproj", "{0EDC7801-212A-43B9-83C8-74F3A6021036}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpWebResponse.LastModified_20180327_1", "HttpWebResponse.LastModified\HttpWebResponse.LastModified_20180327_1.csproj", "{0EDC7801-212A-43B9-83C8-74F3A6021036}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
