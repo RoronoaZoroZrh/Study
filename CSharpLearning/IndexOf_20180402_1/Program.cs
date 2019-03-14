@@ -21,6 +21,17 @@ namespace IndexOf_20180402_1
             //!显示结果
             Console.WriteLine(nIndex);
 
+            //!对null对象进行IndexOf操作
+            try
+            {
+                int result = vTestList.IndexOf(null);
+                Console.WriteLine(result);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error!");
+            }
+
             //!结束示例
             Console.WriteLine("Done!!");
             Console.ReadLine();
