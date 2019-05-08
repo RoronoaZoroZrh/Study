@@ -48,7 +48,7 @@ namespace Xml_Operation_20190313
                         {
                             //修改track属性
                             XmlAttribute trackAttr = nodeIter.Attributes["track"];
-                            trackAttr.Value = (Int32.Parse(trackAttr.Value) / 5 * 4).ToString();
+                            trackAttr.Value = (Int32.Parse(trackAttr.Value) / 4 * 5).ToString();
 
                             //修改target_track属性
                             XmlAttribute tarTrackAttr = nodeIter.Attributes["target_track"];
@@ -59,7 +59,7 @@ namespace Xml_Operation_20190313
                                 {
                                     if (!String.IsNullOrEmpty(sIter))
                                     {
-                                        tarValue = tarValue + (Int32.Parse(sIter) / 5 * 4).ToString() + ",";
+                                        tarValue = tarValue + (Int32.Parse(sIter) / 4 * 5).ToString() + ",";
                                     }
                                 }
                                 tarTrackAttr.Value = tarValue.TrimEnd(',');
