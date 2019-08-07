@@ -4,6 +4,7 @@
  *  brief  : 封装Win32 API
  */
 using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 
@@ -13,13 +14,16 @@ namespace YinYangShi
     public static class Win32API
     {
         //!鼠标点击
-        public static void MouseClick(float fTime)
+        public static void MouseClick(float fTime, Boolean doubleClick = true)
         {
             //!鼠标点击
             mouse_event(MouseEventFlag.LeftDown, 0, 0, 0, 0);
             mouse_event(MouseEventFlag.LeftUp,   0, 0, 0, 0);
-            mouse_event(MouseEventFlag.LeftDown, 0, 0, 0, 0);
-            mouse_event(MouseEventFlag.LeftUp,   0, 0, 0, 0);
+            if (doubleClick)
+            {
+                mouse_event(MouseEventFlag.LeftDown, 0, 0, 0, 0);
+                mouse_event(MouseEventFlag.LeftUp, 0, 0, 0, 0);
+            }
 
             //!鼠标点击间隔
             int nClickTime = (int)(m_nUint * fTime);
@@ -33,14 +37,18 @@ namespace YinYangShi
         }
 
         //!鼠标点击
-        public static void MouseClick(int nX, int nY, float fTime)
+        public static void MouseClick(int nX, int nY, float fTime, Boolean doubleClick = true)
         {
             //!设置鼠标位置
             SetCurPos(nX, nY);
 
             //!鼠标点击
-            MouseClick(fTime);
+            MouseClick(fTime, doubleClick);
         }
+
+        public static IntPtr GetWindowPtr() { return Process.GetProcessesByName("onmyoji")[0].MainWindowHandle; }
+
+        public static void MoveWindow(IntPtr vPtr) { MoveWindow(vPtr, 0, 0, 800, 600, false); }
 
         //!毫秒与秒换算单位
         private const int m_nUint = 1000;
@@ -64,6 +72,8 @@ namespace YinYangShi
         }
 
         //!函数声明
+        [DllImport("USER32.DLL", CharSet = CharSet.Auto)]
+        public static extern int MoveWindow(IntPtr hWnd, int x, int y, int nWidth, int nHeight, bool BRePaint);
         [DllImport("user32.dll")]
         private static extern void mouse_event(MouseEventFlag flags, int dx, int dy, int cButtons, int dwExtraInfo);
         [DllImport("user32.dll")]
