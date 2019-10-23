@@ -4,150 +4,153 @@
  *  brief  : 阴阳师自动脚本
  */
 using System;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace YinYangShi
 {
     public partial class FormYinYangShi : Form
     {
-        //!构造函数
-        public FormYinYangShi()
+        public FormYinYangShi() { InitializeComponent(); }
+
+        private void ButtonAutoSearch_Click(Object sender, EventArgs e)
         {
-            InitializeComponent();
-        }
-
-        //!自动探索、探索固定章节
-        private void ButtonAutoSearch_Click(object sender, EventArgs e)
-        {
-            //!改变命令状态
-            m_bStopCmd = false;
-
-            //!显示日志
-            RichTextBoxLog.Text = RichTextBoxLog.Text + "自动探索开始..." + Environment.NewLine;
-
-            //!选择固定位置章节
-            Win32API.MouseClick(1100, 200, 3);
-
-            //!点击探索按钮
-            Win32API.MouseClick(0980, 555, 3);
-
-            //!无限循环探索副本
-            while (!m_bStopCmd)
+            LogInfo("自动探索开始...", true);
+            Win32API.MoveWindow(Win32API.GetWindowPtr());
+            Boolean excuteState = true;
+            do
             {
-                //!循环100次、寻找怪物
-                RichTextBoxLog.Text = RichTextBoxLog.Text + "击杀怪物开始..." + Environment.NewLine;
-                for (int i = 1; i <= 100; i++)
+                Int32 posX = new Random().Next(-5, 5) + 920;
+                Int32 posY = new Random().Next(-5, 5) + 400;
+                Win32API.MouseClick(posX, posY, 3);
+                posX = new Random().Next(-5, 5) + 720;
+                posY = new Random().Next(-5, 5) + 440;
+                Win32API.MouseClick(posX, posY, 3);
+
+                LogInfo("击杀怪物开始...");
+                for (Int32 i = 1; i <= 70; i++)
                 {
-                    //!显示日志
-                    RichTextBoxLog.Text = RichTextBoxLog.Text + "第" + i.ToString() + "次寻找..." + Environment.NewLine;
-
-                    //!寻找小怪
-                    Win32API.MouseClick(655, 310, 2);
-
-                    //!停止
-                    if (Control.MousePosition.X != 655 && Control.MousePosition.Y != 310)
+                    if (Control.MousePosition.X != posX && Control.MousePosition.Y != posY)
                     {
-                        //!停止
-                        m_bStopCmd = true;
-
-                        //!显示日志
-                        RichTextBoxLog.Text = RichTextBoxLog.Text + "寻找怪物停止..." + Environment.NewLine;
+                        excuteState = false;
                         break;
                     }
-
-                    //!设置滚动位置
-                    RichTextBoxLog.SelectionStart = RichTextBoxLog.Text.Length;
-                    RichTextBoxLog.ScrollToCaret();
-
-                    //!刷新
-                    Update();
+                    LogInfo(String.Format("第{0:D2}次寻找怪物...", i));
+                    posX = new Random().Next(-5, 5) + 520;
+                    posY = new Random().Next(-5, 5) + 220;
+                    Win32API.MouseClick(posX, posY, 2);
+                    Win32API.MouseClick(posX, posY - 60, 2);
                 }
-                RichTextBoxLog.Text = RichTextBoxLog.Text + "击杀怪物结束..." + Environment.NewLine;
 
-                //!退出
-                if (m_bStopCmd)
+                if (excuteState)
                 {
-                    break;
+                    posX = new Random().Next(-2, 2) + 40;
+                    posY = new Random().Next(-2, 2) + 70;
+                    Win32API.MouseClick(posX, posY, 5);
+                    Win32API.MouseClick(posX, posY, 3);
+                    posX = new Random().Next(-5, 5) + 600;
+                    posY = new Random().Next(-5, 5) + 350;
+                    Win32API.MouseClick(posX, posY, 2);
                 }
-
-                //!退出探索副本
-                Win32API.MouseClick(75, 90, 5); //!避免界面卡住
-                Win32API.MouseClick(75, 90, 3);
-                Win32API.MouseClick(740, 405, 3);
-
-                //!选择固定位置章节
-                Win32API.MouseClick(1100, 200, 3);
-
-                //!点击探索按钮
-                Win32API.MouseClick(0980, 555, 3);
             }
-
-            //!显示日志
-            RichTextBoxLog.Text = RichTextBoxLog.Text + "自动探索结束..." + Environment.NewLine + Environment.NewLine;
+            while (excuteState);
+            LogInfo("自动探索结束...");
         }
 
-        //!自动结界突破
         private void ButtonAutoBreak_Click(object sender, EventArgs e)
         {
-            //!改变命令状态
-            m_bStopCmd = false;
-
-            //!显示日志
-            RichTextBoxLog.Text = RichTextBoxLog.Text + "自动突破开始..." + Environment.NewLine;
-
-            //!点击结界突破按钮
-            Win32API.MouseClick(400, 660, 3);
-
-            //!突破
-            int nBreakCnt = 1;
-            while (!m_bStopCmd)
+            LogInfo("自动突破开始...", true);
+            Win32API.MoveWindow(Win32API.GetWindowPtr());
+            Int32 breakCnt = 0;
+            Boolean excuteState = true;
+            do
             {
-                for (int i = 300; i <= 1000; i += 350)
+                Int32 posX = new Random().Next(-5, 5) + 250;
+                Int32 posY = new Random().Next(-5, 5) + 560;
+                Win32API.MouseClick(posX, posY, 3);
+
+                Win32API.MouseClick(700, 500, 2);
+                for (Int32 i = 260; i <= 800; i = i + 270)
                 {
-                    for (int j = 180; j <= 420; j += 120)
+                    for (Int32 j = 150; j <= 370; j = j + 110)
                     {
-                        //!显示日志
-                        RichTextBoxLog.Text = RichTextBoxLog.Text + "第" + nBreakCnt.ToString() + "次突破..." + Environment.NewLine;
-
-                        //!设置滚动位置
-                        RichTextBoxLog.SelectionStart = RichTextBoxLog.Text.Length;
-                        RichTextBoxLog.ScrollToCaret();
-
-                        //!刷新
-                        Update();
-
-                        //!点击突破
-                        Win32API.MouseClick(i, j, 3);
-
-                        //!点击挑战
-                        Win32API.MouseClick(i + 60, j + 110, 10);
-                        Win32API.MouseClick(1100, 600, 60);
-
-                        //!点击退出
-                        Win32API.MouseClick(1100, 600, 5);
-                        Win32API.MouseClick(1100, 600, 5);
-                        Win32API.MouseClick(1100, 600, 5);
-                        Win32API.MouseClick(1100, 600, 5); //退出奖励界面
-                        Win32API.MouseClick(1100, 600, 5); //退出奖励界面
-                        Win32API.MouseClick(1100, 600, 1); //退出奖励界面
-                        Win32API.MouseClick(1100, 600, 1); //退出奖励界面
-                        Win32API.MouseClick(1100, 600, 9); //退出奖励界面
-
-                        //!累计突破次数
-                        ++nBreakCnt;
+                        if (Control.MousePosition.X != 700 && Control.MousePosition.Y != 500)
+                        {
+                            excuteState = false;
+                            break;
+                        }
+                        else
+                        {
+                            LogInfo(String.Format("第{0:D2}次突破...", ++breakCnt));
+                            posX = new Random().Next(-2, 2) + i;
+                            posY = new Random().Next(-2, 2) + j;
+                            Win32API.MouseClick(posX, posY, 2);
+                            Win32API.MouseClick(posX + 20, posY + 140, 40);
+                            Win32API.MouseClick(700, 500, 5);
+                            Win32API.MouseClick(700, 500, 5);
+                            Win32API.MouseClick(700, 500, 5);
+                        }
                     }
                 }
 
-                //!退出
-                if (nBreakCnt >= 18)
-                {
-                    break;
-                }
+                Win32API.MouseClick(800, 450, 3);
+                Win32API.MouseClick(560, 360, 3);
             }
+            while (excuteState);
+            LogInfo("自动突破结束...");
+        }
 
-            //!显示日志
-            RichTextBoxLog.Text = RichTextBoxLog.Text + "自动突破结束..." + Environment.NewLine + Environment.NewLine;
+        private void ButtonThrow_Click(object sender, EventArgs e)
+        {
+            LogInfo("自动百鬼夜行开始...", true);
+            Int32 iCnt = IntegerInputI.Value;
+            Int32 tCnt = IntegerInputT.Value;
+            Win32API.MoveWindow(Win32API.GetWindowPtr());
+            Boolean excuteState = true;
+            do
+            {
+                if (--iCnt >= 0)
+                {
+                    Int32 posX = new Random().Next(-5, 5) + 250;
+                    Int32 posY = new Random().Next(-5, 5) + 450;
+                    Win32API.MouseClick(posX, posY, 3);
+                    posX = new Random().Next(-5, 5) + 400;
+                    posY = new Random().Next(-5, 5) + 250;
+                    Win32API.MouseClick(posX, posY, 3);
+                }
+
+                if (--tCnt >= 0)
+                {
+                    LogInfo(String.Format("第{0:D2}次百鬼...", IntegerInputT.Value - tCnt));
+                    Int32 posX = new Random().Next(-5, 5) + 750;
+                    Int32 posY = new Random().Next(-5, 5) + 450;
+                    Win32API.MouseClick(posX, posY, 3);
+                    Win32API.MouseClick(posX + 50, posY - 50, 3, false);
+
+                    posX = new Random().Next(-5, 5) + 900;
+                    posY = new Random().Next(-5, 5) + 500;
+                    Win32API.MouseClick(posX, posY, 3);
+                    for (int i = 1; i <= 150; ++i)
+                    {
+                        LogInfo(String.Format("第{0:D3}次扔豆...", i));
+                        if (Control.MousePosition.X != posX && Control.MousePosition.Y != posY)
+                        {
+                            excuteState = false;
+                            break;
+                        }
+                        else
+                        {
+                            posX = new Random().Next(-5, 5) + 850;
+                            posY = new Random().Next(-5, 5) + 350;
+                            Win32API.MouseClick(posX, posY, 0.5f);
+                        }
+                    }
+                    Win32API.MouseClick(800, 580, 3);
+                }
+                else
+                    excuteState = false;
+            }
+            while (excuteState);
+            LogInfo("自动百鬼夜行结束...");
         }
 
         //!测试代码
@@ -167,7 +170,7 @@ namespace YinYangShi
         private void ButtonAwake_Click(object sender, EventArgs e)
         {
             //!改变命令状态
-            m_bStopCmd = false;
+            mExcuteState = false;
 
             //!显示日志
             RichTextBoxLog.Text = RichTextBoxLog.Text + "自动觉醒开始..." + Environment.NewLine;
@@ -180,7 +183,7 @@ namespace YinYangShi
 
             //!觉醒
             int nAwakeTimes = 1; //!统计觉醒次数
-            while (!m_bStopCmd)
+            while (!mExcuteState)
             {
                 //!显示日志
                 RichTextBoxLog.Text = RichTextBoxLog.Text + "第" + nAwakeTimes++.ToString() + "次觉醒..." + Environment.NewLine;
@@ -207,7 +210,7 @@ namespace YinYangShi
                 if (Control.MousePosition.X != 1100 && Control.MousePosition.Y != 600)
                 {
                     //!停止
-                    m_bStopCmd = true;
+                    mExcuteState = true;
 
                     //!显示日志
                     RichTextBoxLog.Text = RichTextBoxLog.Text + "自动觉醒停止..." + Environment.NewLine;
@@ -219,7 +222,16 @@ namespace YinYangShi
             RichTextBoxLog.Text = RichTextBoxLog.Text + "自动觉醒结束..." + Environment.NewLine + Environment.NewLine;
         }
 
-        //!停止命令
-        private Boolean m_bStopCmd = false;
+        private void LogInfo(String message, Boolean clear = false)
+        {
+            if (clear)
+                RichTextBoxLog.Text = "";
+            RichTextBoxLog.Text = String.Format("{0}{1} {2}{3}", RichTextBoxLog.Text, DateTime.Now, message, Environment.NewLine);
+            RichTextBoxLog.SelectionStart = RichTextBoxLog.Text.Length;
+            RichTextBoxLog.ScrollToCaret();
+            Update();
+        }
+
+        private Boolean mExcuteState = false;
     }
 }

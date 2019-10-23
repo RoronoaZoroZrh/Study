@@ -29,17 +29,25 @@
         private void InitializeComponent()
         {
             this.PanelYinYangShi = new DevComponents.DotNetBar.PanelEx();
+            this.ButtonAwake = new DevComponents.DotNetBar.ButtonX();
             this.RichTextBoxLog = new System.Windows.Forms.RichTextBox();
             this.ButtonAutoBreak = new DevComponents.DotNetBar.ButtonX();
             this.ButtonAutoSearch = new DevComponents.DotNetBar.ButtonX();
-            this.ButtonAwake = new DevComponents.DotNetBar.ButtonX();
+            this.ButtonThrow = new DevComponents.DotNetBar.ButtonX();
+            this.IntegerInputI = new DevComponents.Editors.IntegerInput();
+            this.IntegerInputT = new DevComponents.Editors.IntegerInput();
             this.PanelYinYangShi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IntegerInputI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IntegerInputT)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelYinYangShi
             // 
             this.PanelYinYangShi.CanvasColor = System.Drawing.SystemColors.Control;
             this.PanelYinYangShi.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.PanelYinYangShi.Controls.Add(this.IntegerInputT);
+            this.PanelYinYangShi.Controls.Add(this.IntegerInputI);
+            this.PanelYinYangShi.Controls.Add(this.ButtonThrow);
             this.PanelYinYangShi.Controls.Add(this.ButtonAwake);
             this.PanelYinYangShi.Controls.Add(this.RichTextBoxLog);
             this.PanelYinYangShi.Controls.Add(this.ButtonAutoBreak);
@@ -56,6 +64,18 @@
             this.PanelYinYangShi.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.PanelYinYangShi.Style.GradientAngle = 90;
             this.PanelYinYangShi.TabIndex = 0;
+            // 
+            // ButtonAwake
+            // 
+            this.ButtonAwake.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.ButtonAwake.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.ButtonAwake.Location = new System.Drawing.Point(12, 83);
+            this.ButtonAwake.Name = "ButtonAwake";
+            this.ButtonAwake.Size = new System.Drawing.Size(132, 53);
+            this.ButtonAwake.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ButtonAwake.TabIndex = 5;
+            this.ButtonAwake.Text = "自动觉醒";
+            this.ButtonAwake.Click += new System.EventHandler(this.ButtonAwake_Click);
             // 
             // RichTextBoxLog
             // 
@@ -89,17 +109,45 @@
             this.ButtonAutoSearch.Text = "自动探索";
             this.ButtonAutoSearch.Click += new System.EventHandler(this.ButtonAutoSearch_Click);
             // 
-            // ButtonAwake
+            // ButtonThrow
             // 
-            this.ButtonAwake.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.ButtonAwake.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.ButtonAwake.Location = new System.Drawing.Point(12, 84);
-            this.ButtonAwake.Name = "ButtonAwake";
-            this.ButtonAwake.Size = new System.Drawing.Size(132, 53);
-            this.ButtonAwake.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ButtonAwake.TabIndex = 5;
-            this.ButtonAwake.Text = "自动觉醒";
-            this.ButtonAwake.Click += new System.EventHandler(this.ButtonAwake_Click);
+            this.ButtonThrow.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.ButtonThrow.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.ButtonThrow.Location = new System.Drawing.Point(163, 154);
+            this.ButtonThrow.Name = "ButtonThrow";
+            this.ButtonThrow.Size = new System.Drawing.Size(132, 53);
+            this.ButtonThrow.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ButtonThrow.TabIndex = 6;
+            this.ButtonThrow.Text = "自动百鬼";
+            this.ButtonThrow.Click += new System.EventHandler(this.ButtonThrow_Click);
+            // 
+            // IntegerInputI
+            // 
+            // 
+            // 
+            // 
+            this.IntegerInputI.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.IntegerInputI.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.IntegerInputI.Location = new System.Drawing.Point(12, 154);
+            this.IntegerInputI.Name = "IntegerInputI";
+            this.IntegerInputI.ShowUpDown = true;
+            this.IntegerInputI.Size = new System.Drawing.Size(132, 21);
+            this.IntegerInputI.TabIndex = 7;
+            this.IntegerInputI.Value = 3;
+            // 
+            // IntegerInputT
+            // 
+            // 
+            // 
+            // 
+            this.IntegerInputT.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.IntegerInputT.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.IntegerInputT.Location = new System.Drawing.Point(12, 186);
+            this.IntegerInputT.Name = "IntegerInputT";
+            this.IntegerInputT.ShowUpDown = true;
+            this.IntegerInputT.Size = new System.Drawing.Size(132, 21);
+            this.IntegerInputT.TabIndex = 8;
+            this.IntegerInputT.Value = 9;
             // 
             // FormYinYangShi
             // 
@@ -112,6 +160,8 @@
             this.Text = "阴阳师帮助脚本";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PanelYinYangShi.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.IntegerInputI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IntegerInputT)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -123,6 +173,9 @@
         private DevComponents.DotNetBar.ButtonX ButtonAutoBreak;
         private System.Windows.Forms.RichTextBox RichTextBoxLog;
         private DevComponents.DotNetBar.ButtonX ButtonAwake;
+        private DevComponents.DotNetBar.ButtonX ButtonThrow;
+        private DevComponents.Editors.IntegerInput IntegerInputI;
+        private DevComponents.Editors.IntegerInput IntegerInputT;
     }
 }
 
